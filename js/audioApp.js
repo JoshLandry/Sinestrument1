@@ -10,7 +10,7 @@ gainNode.connect(audioCtx.destination);
 
 //
 
-var initialVol = 0.010;
+var initialVol = 0.000;
 
 //
 
