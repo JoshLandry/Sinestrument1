@@ -38,3 +38,16 @@ mute.onclick = function() {
     mute.innerHTML = "Mute";
   };
 }
+
+// pitch buttons
+
+var raisePitch = document.querySelector('.raisePitch');
+var lowerPitch = document.querySelector('.lowerPitch');
+
+raisePitch.onclick = function() {
+  oscillator.frequency.value += 40;
+}
+
+lowerPitch.onclick = function() {
+  oscillator.frequency.value -= 40;
+}
