@@ -65,6 +65,8 @@ var twistUpPitch = document.querySelector('.twistUpPitch');
 var mouseTrackButton = document.querySelector('.mouseTrackButton');
 
 var hundredMsVariance = document.querySelector('.hundredMsVariance');
+var twoHundredMsVariance = document.querySelector('.twoHundredMsVariance');
+var rapidVariance = document.querySelector('.rapidVariance');
 
 setPitch.onclick = function() {
   pitchIncrement = document.querySelector('.pitchIncrement').value;
@@ -134,7 +136,7 @@ var variance;
 
 var varianceFunc = function() { 
 
-  if( Math.random() < .2 ) {
+  if( Math.random() < .3 ) {
 
     if( (Math.random() > .5) ) {
       oscillator1.frequency.value += 10;
@@ -147,35 +149,27 @@ var varianceFunc = function() {
     } else {
       oscillator2.frequency.value -= 50;
     }
-  } else {
+  } else if ( Math.random() < .5) {
     oscillator1.frequency.value = oscillator1.frequency.value / 2
     oscillator2.frequency.value = oscillator2.frequency.value / 4
+  } else {
+    oscillator1.frequency.value = oscillator1.frequency.value / Math.random();
+    oscillator2.frequency.value = oscillator2.frequency.value / Math.random();
   }
 };
 
+rapidVariance.onclick = function() {
+  variance = setInterval(varianceFunc, 30);
+}
+
 hundredMsVariance.onclick = function() {
   variance = setInterval(varianceFunc, 100);
-  console.log('at least it repeats');
+}
+
+twoHundredMsVariance.onclick = function() {
+  variance = setInterval(varianceFunc, 200);
 }
 
 function thousandMsVariance() {
   variance = setInterval(varianceFunc, 1000);
-  console.log('at least it repeats');
-}
-
-function tenThousandMsVariance() {
-  variance = setInterval(varianceFunc, 10000);
-  console.log('at least it repeats');
-}
-
-// example
-
-var myVar;
-
-function myFunction() {
-  myVar = setTimeout(alertFunc, 3000);
-}
-
-function alertFunc() {
-  alert("Hello!");
 }
