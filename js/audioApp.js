@@ -1,9 +1,11 @@
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-var oscillator = audioCtx.createOscillator();
+var oscillator1 = audioCtx.createOscillator();
+var oscillator2 = audioCtx.createOscillator();
 var gainNode = audioCtx.createGain();
 
-oscillator.connect(gainNode);
+oscillator1.connect(gainNode);
+oscillator2.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 
 //
@@ -12,12 +14,23 @@ var initialVol = 0.010;
 
 //
 
-oscillator.type = 'sine';
-oscillator.frequency.value = 4400;
-oscillator.detune.value = 100;
-oscillator.start(0);
+oscillator1.type = 'sine';
+oscillator1.frequency.value = 2200;
+oscillator1.detune.value = 100;
+oscillator1.start(0);
 
-oscillator.onended = function() {
+oscillator1.onended = function() {
+  console.log('somehow, your tone has ended');
+}
+
+//
+
+oscillator2.type = 'square';
+oscillator2.frequency.value = 1100;
+oscillator2.detune.value = 100;
+oscillator2.start(0);
+
+oscillator2.onended = function() {
   console.log('somehow, your tone has ended');
 }
 
@@ -41,13 +54,35 @@ mute.onclick = function() {
 
 // pitch buttons
 
+var pitchIncrement = 80;
+
+var setPitch = document.querySelector('.setPitch');
 var raisePitch = document.querySelector('.raisePitch');
 var lowerPitch = document.querySelector('.lowerPitch');
+var twistDownPitch = document.querySelector('.twistDownPitch');
+var twistUpPitch = document.querySelector('.twistUpPitch');
+
+setPitch.onclick = function() {
+  pitchIncrement = document.querySelector('.pitchIncrement').value;
+  console.log(pitchIncrement);
+}
 
 raisePitch.onclick = function() {
-  oscillator.frequency.value += 40;
+  oscillator1.frequency.value += pitchIncrement;
+  oscillator2.frequency.value += pitchIncrement;
 }
 
 lowerPitch.onclick = function() {
-  oscillator.frequency.value -= 40;
+  oscillator1.frequency.value -= pitchIncrement;
+  oscillator2.frequency.value -= pitchIncrement;
+}
+
+twistDownPitch.onclick = function() {
+  oscillator1.frequency.value += pitchIncrement;
+  oscillator2.frequency.value -= pitchIncrement;
+}
+
+twistUpPitch.onclick = function() {
+  oscillator1.frequency.value -= pitchIncrement;
+  oscillator2.frequency.value += pitchIncrement;
 }
