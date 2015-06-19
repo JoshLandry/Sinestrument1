@@ -62,6 +62,10 @@ var lowerPitch = document.querySelector('.lowerPitch');
 var twistDownPitch = document.querySelector('.twistDownPitch');
 var twistUpPitch = document.querySelector('.twistUpPitch');
 
+var mouseTrackButton = document.querySelector('.mouseTrackButton');
+
+var hundredMsVariance = document.querySelector('.hundredMsVariance');
+
 setPitch.onclick = function() {
   pitchIncrement = document.querySelector('.pitchIncrement').value;
   console.log(pitchIncrement);
@@ -85,4 +89,93 @@ twistDownPitch.onclick = function() {
 twistUpPitch.onclick = function() {
   oscillator1.frequency.value -= pitchIncrement;
   oscillator2.frequency.value += pitchIncrement;
+}
+
+// pitch follows mouse
+
+mouseTrackButton.onclick = function() {
+  if(mouseTrack) {
+    mouseTrack = false;
+  } else {
+    mouseTrack = true;
+  }
+};
+
+document.onmousemove = updatePage;
+
+var WIDTH = window.innerWidth;
+var HEIGHT = window.innerHeight;
+
+var CurX;
+var CurY;
+
+var maxFreq = 6000;
+var maxVol = 0.02;
+
+var mouseTrack = true;
+
+function updatePage(e) {
+
+    if(mouseTrack) {
+      KeyFlag = false;
+
+      CurX = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+      CurY = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+      
+      oscillator1.frequency.value = ( (CurX/WIDTH) * maxFreq / 4);
+      oscillator2.frequency.value = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
+      gainNode.gain.value = (CurY/HEIGHT) * maxVol;
+    }
+}
+
+// constant variance
+
+var variance;
+
+var varianceFunc = function() { 
+
+  if( Math.random() < .2 ) {
+
+    if( (Math.random() > .5) ) {
+      oscillator1.frequency.value += 10;
+    } else {
+      oscillator1.frequency.value -= 45;
+    }
+
+    if( (Math.random() > .5) ) {
+      oscillator2.frequency.value -= 10;
+    } else {
+      oscillator2.frequency.value -= 50;
+    }
+  } else {
+    oscillator1.frequency.value = oscillator1.frequency.value / 2
+    oscillator2.frequency.value = oscillator2.frequency.value / 4
+  }
+};
+
+hundredMsVariance.onclick = function() {
+  variance = setInterval(varianceFunc, 100);
+  console.log('at least it repeats');
+}
+
+function thousandMsVariance() {
+  variance = setInterval(varianceFunc, 1000);
+  console.log('at least it repeats');
+}
+
+function tenThousandMsVariance() {
+  variance = setInterval(varianceFunc, 10000);
+  console.log('at least it repeats');
+}
+
+// example
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(alertFunc, 3000);
+}
+
+function alertFunc() {
+  alert("Hello!");
 }
