@@ -67,6 +67,7 @@ var mouseTrackButton = document.querySelector('.mouseTrackButton');
 var hundredMsVariance = document.querySelector('.hundredMsVariance');
 var twoHundredMsVariance = document.querySelector('.twoHundredMsVariance');
 var rapidVariance = document.querySelector('.rapidVariance');
+var stopVariance = document.querySelector('.stopVariance');
 
 setPitch.onclick = function() {
   pitchIncrement = document.querySelector('.pitchIncrement').value;
@@ -172,4 +173,8 @@ twoHundredMsVariance.onclick = function() {
 
 function thousandMsVariance() {
   variance = setInterval(varianceFunc, 1000);
+}
+
+stopVariance.onclick = function() {
+  window.clearInterval(variance);
 }
