@@ -1,18 +1,43 @@
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
+var analyser = audioCtx.createAnalyser(); // not sure why I need this
+
 var oscillator1 = audioCtx.createOscillator();
 var oscillator2 = audioCtx.createOscillator();
 var gainNode = audioCtx.createGain();
 
-oscillator1.connect(gainNode);
-oscillator2.connect(gainNode);
-gainNode.connect(audioCtx.destination);
+// oscillator1.connect(biquadFilter);
+// oscillator2.connect(biquadFilter);
+// biquadFilter.connect(gainNode);
+// gainNode.connect(audioCtx.destination);
 
-//
+// filter (low shelf)
+
+var biquadFilter = audioCtx.createBiquadFilter();
+
+biquadFilter.type = "lowshelf";
+biquadFilter.frequency.value = 1000;
+biquadFilter.gain.value = 25;
+
+// filter (low pass)
+
+var lowPassFilter = audioCtx.createBiquadFilter();
+
+lowPassFilter.type = "lowpass";
+lowPassFilter.frequency.value = 800;
+
+// routing
+
+oscillator1.connect(analyser);
+oscillator2.connect(analyser);
+analyser.connect(biquadFilter);
+biquadFilter.connect(lowPassFilter);
+lowPassFilter.connect(gainNode);
+gainNode.connect(audioCtx.destination);
 
 var initialVol = 0.000;
 
-//
+// oscillator 1
 
 oscillator1.type = 'sine';
 oscillator1.frequency.value = 2200;
@@ -23,7 +48,7 @@ oscillator1.onended = function() {
   console.log('somehow, your tone has ended');
 }
 
-//
+// oscillator 2
 
 oscillator2.type = 'square';
 oscillator2.frequency.value = 1100;
@@ -141,21 +166,27 @@ var varianceFunc = function() {
 
     if( (Math.random() > .5) ) {
       oscillator1.frequency.value += 10;
+      lowPassFilter.frequency.value = 4000;
     } else {
       oscillator1.frequency.value -= 45;
+      lowPassFilter.frequency.value = 1700;
     }
 
     if( (Math.random() > .5) ) {
       oscillator2.frequency.value -= 10;
+      lowPassFilter.frequency.value = 4000;
     } else {
       oscillator2.frequency.value -= 50;
+      lowPassFilter.frequency.value = 2750;
     }
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = oscillator1.frequency.value / 2
     oscillator2.frequency.value = oscillator2.frequency.value / 4
+    lowPassFilter.frequency.value = (Math.random * 500);
   } else {
     oscillator1.frequency.value = oscillator1.frequency.value / Math.random();
     oscillator2.frequency.value = oscillator2.frequency.value / Math.random();
+    lowPassFilter.frequency.value = 1750;
   }
 };
 
