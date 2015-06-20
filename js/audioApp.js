@@ -352,7 +352,9 @@ var tonalVarianceFunc2 = function() {
 
 var tonalVarianceFunc3 = function() { 
 
-  if( Math.random() < .5 ) {
+  if( Math.random() < .3 ) {
+    lowPassFilter.frequency.value = Math.random() * 100;
+  } else if( Math.random() < .5 ) {
 
     if( (Math.random() > .5) ) {
       oscillator1.frequency.value = 110.00; // A3
@@ -385,11 +387,11 @@ var tonalVarianceFunc3 = function() {
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = 87.31 // G2
     oscillator2.frequency.value = 174.61 // F3
-    lowPassFilter.frequency.value = (Math.random * 500);
+    lowPassFilter.frequency.value = (Math.random * 2500);
   } else if ( Math.random() < .8) {
     oscillator1.frequency.value = 73.42 // D2
     oscillator2.frequency.value = 87.31 // F2
-    lowPassFilter.frequency.value = (Math.random * 500);
+    lowPassFilter.frequency.value = (Math.random * 4500);
   } else {
     oscillator1.frequency.value = 196.00 // G2
     oscillator2.frequency.value = 49.00 // G1
