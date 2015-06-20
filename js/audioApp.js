@@ -26,6 +26,16 @@ var lowPassFilter = audioCtx.createBiquadFilter();
 lowPassFilter.type = "lowpass";
 lowPassFilter.frequency.value = 800;
 
+// filter (band pass)
+
+var bandPassFilter = audioCtx.createBiquadFilter();
+
+bandPassFilter.type = "bandpass";
+
+// convolver 
+
+
+
 // routing
 
 oscillator1.connect(analyser);
@@ -92,6 +102,11 @@ var mouseTrackButton = document.querySelector('.mouseTrackButton');
 var hundredMsVariance = document.querySelector('.hundredMsVariance');
 var twoHundredMsVariance = document.querySelector('.twoHundredMsVariance');
 var rapidVariance = document.querySelector('.rapidVariance');
+var randomVariance = document.querySelector('.randomVariance');
+var minuteVariance = document.querySelector('.minuteVariance');
+
+var tonalVariance = document.querySelector('.tonalVariance');
+
 var stopVariance = document.querySelector('.stopVariance');
 
 setPitch.onclick = function() {
@@ -174,10 +189,10 @@ var varianceFunc = function() {
 
     if( (Math.random() > .5) ) {
       oscillator2.frequency.value -= 10;
-      lowPassFilter.frequency.value = 4000;
+      lowPassFilter.frequency.value = 6000;
     } else {
       oscillator2.frequency.value -= 50;
-      lowPassFilter.frequency.value = 2750;
+      lowPassFilter.frequency.value = 3750;
     }
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = oscillator1.frequency.value / 2
@@ -189,6 +204,98 @@ var varianceFunc = function() {
     lowPassFilter.frequency.value = 1750;
   }
 };
+
+var varianceFunc2 = function() { 
+
+  if( Math.random() < .3 ) {
+
+    if( (Math.random() > .5) ) {
+      oscillator1.frequency.value += 220;
+      lowPassFilter.frequency.value = 4000;
+    } else {
+      oscillator1.frequency.value -= 220;
+      lowPassFilter.frequency.value = 1700;
+    }
+
+    if( (Math.random() > .5) ) {
+      oscillator2.frequency.value -= 110;
+      lowPassFilter.frequency.value = 6000;
+    } else {
+      oscillator2.frequency.value += 110;
+      lowPassFilter.frequency.value = 3750;
+    }
+  } else if ( Math.random() < .5) {
+    oscillator1.frequency.value = oscillator1.frequency.value * 2
+    oscillator2.frequency.value = oscillator2.frequency.value / 4
+    lowPassFilter.frequency.value = (Math.random * 500);
+  } else {
+    oscillator1.frequency.value = oscillator1.frequency.value / (Math.random() * 6);
+    oscillator2.frequency.value = oscillator2.frequency.value * (Math.random() * 4);
+    lowPassFilter.frequency.value = 1750;
+  }
+};
+
+var varianceFunc3 = function() { 
+
+  if( Math.random() < .3 ) {
+
+    if( (Math.random() > .5) ) {
+      oscillator1.frequency.value += 5;
+      lowPassFilter.frequency.value = 4000;
+    } else {
+      oscillator1.frequency.value -= 5;
+      lowPassFilter.frequency.value = 1700;
+    }
+
+    if( (Math.random() > .5) ) {
+      oscillator2.frequency.value -= 2;
+      lowPassFilter.frequency.value = 6000;
+    } else {
+      oscillator2.frequency.value += 2;
+      lowPassFilter.frequency.value = 3750;
+    }
+  } else if ( Math.random() < .5) {
+    oscillator1.frequency.value = oscillator1.frequency.value * 1.3
+    oscillator2.frequency.value = oscillator2.frequency.value / 1.1
+    lowPassFilter.frequency.value = (Math.random * 500);
+  } else {
+    oscillator1.frequency.value = oscillator1.frequency.value / (Math.random() * 1.3);
+    oscillator2.frequency.value = oscillator2.frequency.value * (Math.random() * .9);
+    lowPassFilter.frequency.value = 1750;
+  }
+};
+
+var tonalVarianceFunc1 = function() { 
+
+  if( Math.random() < .3 ) {
+
+    if( (Math.random() > .5) ) {
+      oscillator1.frequency.value = 1879.69;
+      lowPassFilter.frequency.value = 4000;
+    } else {
+      oscillator1.frequency.value - 1674.62;
+      lowPassFilter.frequency.value = 1700;
+    }
+
+    if( (Math.random() > .5) ) {
+      oscillator2.frequency.value = 1408.18;
+      lowPassFilter.frequency.value = 6000;
+    } else {
+      oscillator2.frequency.value = 1254.55;
+      lowPassFilter.frequency.value = 3750;
+    }
+  } else if ( Math.random() < .5) {
+    oscillator1.frequency.value = 837.31
+    oscillator2.frequency.value = 790.31
+    lowPassFilter.frequency.value = (Math.random * 500);
+  } else {
+    oscillator1.frequency.value = 627.27
+    oscillator2.frequency.value = 939.85
+    lowPassFilter.frequency.value = 1750;
+  }
+};
+
+// atonal variances
 
 rapidVariance.onclick = function() {
   variance = setInterval(varianceFunc, 30);
@@ -202,9 +309,21 @@ twoHundredMsVariance.onclick = function() {
   variance = setInterval(varianceFunc, 200);
 }
 
-function thousandMsVariance() {
-  variance = setInterval(varianceFunc, 1000);
+randomVariance.onclick = function() {
+  variance = setInterval(varianceFunc2, (Math.random() * 300));
 }
+
+minuteVariance.onclick = function() {
+  variance = setInterval(varianceFunc3, (Math.random() * 400));
+}
+
+// tonal variances
+
+tonalVariance.onclick = function() {
+  variance = setInterval(tonalVarianceFunc1, 200);
+}
+
+//
 
 stopVariance.onclick = function() {
   window.clearInterval(variance);
