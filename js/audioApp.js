@@ -362,7 +362,13 @@ var tonalVarianceFunc3 = function() {
     lowPassFilter.frequency.value = 2700;
   }
 
-  gate = setTimeout(gateFunc, 175 );
+  if (Math.random() < .5) {
+    gate = setTimeout(gateFunc, 115 );
+  } else if (Math.random() <.5) {
+    gate = setTimeout(gateFunc, 175);
+  } else {
+    gate = setTimeout(gateFunc, 235);
+  }
 
   if( Math.random() < .3 ) {
     lowPassFilter.frequency.value = Math.random() * 100;
