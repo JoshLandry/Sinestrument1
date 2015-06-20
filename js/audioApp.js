@@ -432,7 +432,7 @@ tonalVarianceScale.onclick = function() {
 }
 
 tonalVarianceBass.onclick = function() {
-  variance = setInterval(tonalVarianceFunc3, 200);
+  variance = setInterval(tonalVarianceFunc3, 300);
 }
 
 //
