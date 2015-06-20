@@ -358,8 +358,8 @@ var gateFunc = function() {
 
 var tonalVarianceFunc3 = function() { 
 
-  if( Math.random() < .5 ) {
-    lowPassFilter.frequency.value = 2000;
+  if( Math.random() < .8 ) {
+    lowPassFilter.frequency.value = 2700;
   }
 
   gate = setTimeout(gateFunc, 175 );
