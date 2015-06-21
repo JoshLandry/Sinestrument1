@@ -494,13 +494,31 @@ var psyBassFunc = function () {
     oscillator2.frequency.value = 146.83; // D3
     console.log("E");
   } else {  
-    gate = setTimeout(gateFunc, 215);
+    if (Math.random() < .5) {
+      gate = setTimeout(gateFunc, 215);
+    } else {
+      gate = setTimeout(gateFunc, 175);
+    }
     oscillator1.frequency.value = 110.00; // A3
     console.log("F");
   }
 
   waveform = setTimeout(randomWaveFunc, 150);
 
+  if(Math.random() < .1) {
+  repeatingPattern = setTimeout(noteSubdivision, 150);
+  }
+}
+
+var noteSubdivision = function() {
+  
+  if( (randomizer1 / 500) < .5) {
+    oscillator1.frequency.value = 196.00; // G3
+    console.log("sub A");
+  } else {
+    oscillator1.frequency.value = 87.31; // F2
+    console.log("sub B");
+  }
 }
 
 
