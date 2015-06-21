@@ -383,6 +383,7 @@ var gateFunc = function() {
 
 var tonalVarianceFunc3 = function() { 
 
+  pitchTrack = false;
   if( Math.random() < .7 ) {
     lowPassFilter.frequency.value = 3000;
   }
