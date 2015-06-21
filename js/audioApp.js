@@ -588,34 +588,65 @@ var acidSequentialFunc = function() {
   waveform = setTimeout(randomWaveFunc, 200);
 
   console.log(stepInSequence);
+
+  // if(stepInSequence === 0 ) {
+  //   oscillator1.frequency.value = BoctaveThree;
+  //   oscillator2.frequency.value = BoctaveTwo;
+  //   stepInSequence += 1;
+  //   variance = setTimeout(acidSequentialFunc, 200);
+  // } else if (stepInSequence === 1) {
+  //   oscillator1.frequency.value = DsharpOctaveThree;
+  //   stepInSequence += 1;
+  //   variance = setTimeout(acidSequentialFunc, 200);
+  // } else if (stepInSequence === 2) {
+  //   oscillator1.frequency.value = FsharpOctaveThree;
+  //   oscillator2.frequency.value = BoctaveThree;
+  //   stepInSequence += 1;
+  //   variance = setTimeout(acidSequentialFunc, 400);
+  // } else if (stepInSequence === 3) {
+  //   oscillator1.frequency.value = FsharpOctaveTwo;
+  //   stepInSequence += 1;
+  //   variance = setTimeout(acidSequentialFunc, 200);
+  // } else if (stepInSequence === 4) { 
+  //   oscillator1.frequency.value = AoctaveOne;
+  //   oscillator2.frequency.value = BoctaveTwo;
+  //   stepInSequence += 1;
+  //   variance = setTimeout(acidSequentialFunc, 200);
+  // } else if (stepInSequence === 5) {
+  //   oscillator1.frequency.value = BoctaveOne;
+  //   oscillator2.frequency.value = BoctaveThree;
+  //   stepInSequence = 0;
+  //   variance = setTimeout(acidSequentialFunc, 200);
+  // }
+
   if(stepInSequence === 0 ) {
-    oscillator1.frequency.value = BoctaveTwo;
-    oscillator2.frequency.value = BoctaveOne;
-    stepInSequence += 1;
-    variance = setTimeout(acidSequentialFunc, 200);
-  } else if (stepInSequence === 1) {
-    oscillator1.frequency.value = DsharpOctaveTwo;
-    stepInSequence += 1;
-    variance = setTimeout(acidSequentialFunc, 200);
-  } else if (stepInSequence === 2) {
-    oscillator1.frequency.value = FsharpOctaveTwo;
-    oscillator2.frequency.value = BoctaveTwo;
-    stepInSequence += 1;
-    variance = setTimeout(acidSequentialFunc, 400);
-  } else if (stepInSequence === 3) {
-    oscillator1.frequency.value = FsharpOctaveOne;
-    stepInSequence += 1;
-    variance = setTimeout(acidSequentialFunc, 200);
-  } else if (stepInSequence === 4) { 
-    oscillator1.frequency.value = AoctaveThree;
-    oscillator2.frequency.value = BoctaveOne;
-    stepInSequence += 1;
-    variance = setTimeout(acidSequentialFunc, 200);
-  } else if (stepInSequence === 5) {
     oscillator1.frequency.value = BoctaveThree;
     oscillator2.frequency.value = BoctaveTwo;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
+  } else if (stepInSequence === 1) {
+    oscillator1.frequency.value = DsharpOctaveThree;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
+  } else if (stepInSequence === 2) {
+    oscillator1.frequency.value = FsharpOctaveThree;
+    oscillator2.frequency.value = BoctaveThree;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
+  } else if (stepInSequence === 3) {
+    oscillator1.frequency.value = FsharpOctaveTwo;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
+  } else if (stepInSequence === 4) { 
+    oscillator1.frequency.value = AoctaveOne;
+    oscillator2.frequency.value = BoctaveTwo;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
+  } else if (stepInSequence === 5) {
+    oscillator1.frequency.value = BoctaveOne;
+    oscillator2.frequency.value = BoctaveThree;
     stepInSequence = 0;
-    variance = setTimeout(acidSequentialFunc, 200);
+    variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
   }
 
 }
