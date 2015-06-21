@@ -111,6 +111,7 @@ var tonalVarianceScale = document.querySelector('.tonalVarianceScale');
 var tonalVarianceBass = document.querySelector('.tonalVarianceBass');
 
 var psyBass = document.querySelector('.psyBass');
+var acidSequence = document.querySelector('.acidSequence');
 
 var filterSweep = document.querySelector('.filterSweep');
 var randomizeWaveform = document.querySelector('.randomizeWaveform');
@@ -246,7 +247,7 @@ var varianceFunc = function() {
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = oscillator1.frequency.value / 2
     oscillator2.frequency.value = oscillator2.frequency.value / 4
-    lowPassFilter.frequency.value = (Math.random * 500);
+    lowPassFilter.frequency.value = (Math.random() * 500);
   } else {
     oscillator1.frequency.value = oscillator1.frequency.value / Math.random();
     oscillator2.frequency.value = oscillator2.frequency.value / Math.random();
@@ -276,7 +277,7 @@ var varianceFunc2 = function() {
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = oscillator1.frequency.value * 2
     oscillator2.frequency.value = oscillator2.frequency.value / 4
-    lowPassFilter.frequency.value = (Math.random * 500);
+    lowPassFilter.frequency.value = (Math.random() * 500);
   } else {
     oscillator1.frequency.value = oscillator1.frequency.value / (Math.random() * 6);
     oscillator2.frequency.value = oscillator2.frequency.value * (Math.random() * 4);
@@ -453,6 +454,8 @@ var repeatingPattern;
 // sequences
 
 var psyBassFunc = function () {
+
+  pitchTrack = false;
   oscillator1.frequency.value = 196.00 // G2
   oscillator2.frequency.value = 49.00 // G1
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
@@ -521,7 +524,59 @@ var noteSubdivision = function() {
   }
 }
 
+var acidseq2 = function () {
 
+  pitchTrack = false;
+  lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
+  waveform = setTimeout(randomWaveFunc, 400);
+  oscillator1.frequency.value = BoctaveOne;
+  oscillator2.frequency.value = DsharpOctaveOne;
+
+  if ( Math.random() <.3 ) {
+    oscillator1.frequency.value = BoctaveOne;
+    lowPassFilter.frequency.value = 2000;
+
+    if (Math.random() < .5) {
+          gate = setTimeout(gateFunc, 215);
+        } else {
+          gate = setTimeout(gateFunc, 175);
+        }
+
+    console.log("B"); 
+  } else if ( (randomizer1 / 500) < .3) {
+    oscillator1.frequency.value = DsharpOctaveOne;
+    gate = setTimeout(gateFunc, 140);
+    console.log("A");
+  } else if ((randomizer1 / 1000) <.3) {
+    gate = setTimeout(gateFunc, 105);
+    oscillator1.frequency.value = BoctaveOne;
+    oscillator2.frequency.value = FsharpOctaveOne;
+    console.log("C");
+  } else if (( (randomizer2 * -1) / 1000) <.6) {
+    gate = setTimeout(gateFunc, 190);
+    oscillator1.frequency.value = AoctaveOne;
+    oscillator2.frequency.value = BoctaveOne;
+    console.log("D");
+  } else if ((randomizer1 / 1000) <.7) {
+    oscillator1.frequency.value = BoctaveOne;
+    oscillator2.frequency.value = BoctaveTwo;
+    console.log("E");
+  } else {  
+    if (Math.random() < .5) {
+      gate = setTimeout(gateFunc, 215);
+    } else {
+      gate = setTimeout(gateFunc, 175);
+    }
+    oscillator1.frequency.value = DsharpOctaveTwo;
+    oscillator2.frequency.value = DsharpOctaveOne;
+    console.log("F");
+  }
+
+  if(Math.random() < .1 ) {
+    lowPassFilter.frequency.value = (Math.random() * 1000);
+  }
+
+}
 
 // filter modulation
 
@@ -597,6 +652,10 @@ psyBass.onclick = function () {
   variance = setInterval(psyBassFunc, 150);
 }
 
+acidSequence.onclick = function () {
+  variance = setInterval(acidseq2, 200);
+}
+
 // filter sweeps
 
 filterSweep.onclick = function() {
@@ -614,3 +673,48 @@ randomizeWaveform.onclick = function() {
 stopVariance.onclick = function() {
   window.clearInterval(variance);
 }
+
+
+// Tone Dictionary
+
+var CoctaveOne = 32.70;
+var CsharpOctaveOne = 34.65;
+var DoctaveOne = 36.71;
+var DsharpOctaveOne = 38.89;
+var EoctaveOne = 41.20;
+var FoctaveOne = 43.65;
+var FsharpOctaveOne = 46.25;
+var GoctaveOne = 49.00;
+var GsharpOctaveOne = 51.91;
+var AoctaveOne = 55.00;
+var BflatOctaveOne = 58.27;
+var BoctaveOne = 61.74;
+
+var CoctaveTwo = 65.41;
+var CsharpOctaveTwo = 69.30;
+var DoctaveTwo = 73.42;
+var DsharpOctaveTwo = 77.78;
+var EoctaveTwo = 82.41;
+var FoctaveTwo = 87.31;
+var FsharpOctaveTwo = 92.50;
+var GoctaveTwo = 98.00;
+var GsharpOctaveTwo = 103.83;
+var AoctaveTwo = 110.00
+var AsharpOctaveTwo = 116.54;
+var BoctaveTwo = 123.47;
+
+var CoctaveThree = 130.81;
+var CsharpOctaveThree = 138.59;
+var DoctaveThree = 146.83;
+var DsharpOctaveThree = 155.56;
+var EoctaveThree = 164.81;
+var FoctaveThree = 174.61;
+var FsharpOctaveThree = 185.00;
+var GoctaveThree = 196.00;
+var GsharpOctaveThree = 207.65;
+var AoctaveThree = 220.00;
+var AsharpOctaveThree = 233.08;
+var BoctaveThree = 246.94;
+
+
+
