@@ -145,10 +145,10 @@ var twistDown = function() {
 
 //
 
-setPitch.onclick = function() {
-  pitchIncrement = document.querySelector('.pitchIncrement').value;
-  console.log(pitchIncrement);
-}
+// setPitch.onclick = function() {
+//   pitchIncrement = document.querySelector('.pitchIncrement').value;
+//   console.log(pitchIncrement);
+// }
 
 raisePitch.onclick = function() {
   pitchSlide = window.setInterval(slideUp, 300);
