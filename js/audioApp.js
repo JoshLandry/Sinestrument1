@@ -17,7 +17,7 @@ var biquadFilter = audioCtx.createBiquadFilter();
 
 biquadFilter.type = "lowshelf";
 biquadFilter.frequency.value = 1000;
-biquadFilter.gain.value = 25;
+biquadFilter.gain.value = 20;
 
 // filter (low pass)
 
@@ -109,8 +109,9 @@ var tonalVariance = document.querySelector('.tonalVariance');
 var tonalVarianceScale = document.querySelector('.tonalVarianceScale');
 var tonalVarianceBass = document.querySelector('.tonalVarianceBass');
 
-var filterSweep = document.querySelector('.filterSweep');
+var psyBass = document.querySelector('.psyBass');
 
+var filterSweep = document.querySelector('.filterSweep');
 var randomizeWaveform = document.querySelector('.randomizeWaveform');
 
 var stopVariance = document.querySelector('.stopVariance');
@@ -374,10 +375,6 @@ var tonalVarianceFunc3 = function() {
     gate = setTimeout(gateFunc, 235);
   }
 
-  if( Math.random() < .5 ) {
-    variance = setTimeout(randomWaveFunc, 300);
-  }
-
   if( Math.random() < .25) {
     variance = setTimeout(tonalVarianceFunc3, 150);
   }
@@ -428,6 +425,22 @@ var tonalVarianceFunc3 = function() {
     lowPassFilter.frequency.value = 1750;
   }
 };
+
+// sequences
+
+var psyBassFunc = function () {
+  oscillator1.frequency.value = 196.00 // G2
+  oscillator2.frequency.value = 49.00 // G1
+  lowPassFilter.frequency.value = 4000;
+
+  if (Math.random() < .5) {
+    gate = setTimeout(gateFunc, 155 );
+  } else if (Math.random() <.5) {
+    gate = setTimeout(gateFunc, 175);
+  } else {
+    gate = setTimeout(gateFunc, 235);
+  }
+}
 
 // filter modulation
 
@@ -495,6 +508,12 @@ tonalVarianceScale.onclick = function() {
 
 tonalVarianceBass.onclick = function() {
   variance = setInterval(tonalVarianceFunc3, 300);
+}
+
+// sequences
+
+psyBass.onclick = function () {
+  variance = setInterval(psyBassFunc, 150);
 }
 
 // filter sweeps
