@@ -109,6 +109,10 @@ var tonalVariance = document.querySelector('.tonalVariance');
 var tonalVarianceScale = document.querySelector('.tonalVarianceScale');
 var tonalVarianceBass = document.querySelector('.tonalVarianceBass');
 
+var filterSweep = document.querySelector('.filterSweep');
+
+var randomizeWaveform = document.querySelector('.randomizeWaveform');
+
 var stopVariance = document.querySelector('.stopVariance');
 
 
@@ -370,7 +374,11 @@ var tonalVarianceFunc3 = function() {
     gate = setTimeout(gateFunc, 235);
   }
 
-  if (Math.random() < .25) {
+  if( Math.random() < .5 ) {
+    variance = setTimeout(randomWaveFunc, 300);
+  }
+
+  if( Math.random() < .25) {
     variance = setTimeout(tonalVarianceFunc3, 150);
   }
 
@@ -409,17 +417,49 @@ var tonalVarianceFunc3 = function() {
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = 87.31 // G2
     oscillator2.frequency.value = 174.61 // F3
-    lowPassFilter.frequency.value = (Math.random * 2500);
+    lowPassFilter.frequency.value = (Math.random() * 2500);
   } else if ( Math.random() < .8) {
     oscillator1.frequency.value = 73.42 // D2
     oscillator2.frequency.value = 87.31 // F2
-    lowPassFilter.frequency.value = (Math.random * 4500);
+    lowPassFilter.frequency.value = (Math.random() * 4500);
   } else {
     oscillator1.frequency.value = 196.00 // G2
     oscillator2.frequency.value = 49.00 // G1
     lowPassFilter.frequency.value = 1750;
   }
 };
+
+// filter modulation
+
+var filterSweepFunc = function() {
+  if(lowPassFilter.frequency.value < 6000) {
+    lowPassFilter.frequency.value += 10
+  } else {
+    lowPassFilter.frequency.value = 0;
+  }
+}
+
+// waveform randomization
+
+var randomWaveFunc = function() {
+  if(Math.random() < .5) {
+    oscillator1.type = "square";
+  } else {
+    oscillator2.type = "sine";
+  }
+
+  if(Math.random() < .5) {
+    oscillator1.type = "sine";
+  } else {
+    oscillator2.type = "triangle";
+  }
+
+  if(Math.random() < .5) {
+    oscillator1.type = "sawtooth";
+  } else {
+    oscillator2.type = "square";
+  }
+}
 
 // atonal variances
 
@@ -455,6 +495,18 @@ tonalVarianceScale.onclick = function() {
 
 tonalVarianceBass.onclick = function() {
   variance = setInterval(tonalVarianceFunc3, 300);
+}
+
+// filter sweeps
+
+filterSweep.onclick = function() {
+  variance = setInterval(filterSweepFunc, 1);
+}
+
+// waveform randomization
+
+randomizeWaveform.onclick = function() {
+  variance = setInterval(randomWaveFunc, 300);
 }
 
 //
