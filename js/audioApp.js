@@ -112,6 +112,7 @@ var tonalVarianceBass = document.querySelector('.tonalVarianceBass');
 
 var psyBass = document.querySelector('.psyBass');
 var acidSequence = document.querySelector('.acidSequence');
+var acidSequential = document.querySelector('.acidSequential');
 
 var filterSweep = document.querySelector('.filterSweep');
 var randomizeWaveform = document.querySelector('.randomizeWaveform');
@@ -579,6 +580,46 @@ var acidseq2 = function () {
 
 }
 
+var stepInSequence = 0;
+
+var acidSequentialFunc = function() {
+  pitchTrack = false;
+  lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
+  waveform = setTimeout(randomWaveFunc, 200);
+
+  console.log(stepInSequence);
+  if(stepInSequence === 0 ) {
+    oscillator1.frequency.value = BoctaveTwo;
+    oscillator2.frequency.value = BoctaveOne;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, 200);
+  } else if (stepInSequence === 1) {
+    oscillator1.frequency.value = DsharpOctaveTwo;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, 200);
+  } else if (stepInSequence === 2) {
+    oscillator1.frequency.value = FsharpOctaveTwo;
+    oscillator2.frequency.value = BoctaveTwo;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, 400);
+  } else if (stepInSequence === 3) {
+    oscillator1.frequency.value = FsharpOctaveOne;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, 200);
+  } else if (stepInSequence === 4) { 
+    oscillator1.frequency.value = AoctaveThree;
+    oscillator2.frequency.value = BoctaveOne;
+    stepInSequence += 1;
+    variance = setTimeout(acidSequentialFunc, 200);
+  } else if (stepInSequence === 5) {
+    oscillator1.frequency.value = BoctaveThree;
+    oscillator2.frequency.value = BoctaveTwo;
+    stepInSequence = 0;
+    variance = setTimeout(acidSequentialFunc, 200);
+  }
+
+}
+
 // filter modulation
 
 var filterSweepFunc = function() {
@@ -655,6 +696,10 @@ psyBass.onclick = function () {
 
 acidSequence.onclick = function () {
   variance = setInterval(acidseq2, 200);
+}
+
+acidSequential.onclick = function() {
+  acidSequentialFunc();
 }
 
 // filter sweeps
