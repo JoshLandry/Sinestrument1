@@ -97,6 +97,10 @@ var lowerPitch = document.querySelector('.lowerPitch');
 var twistDownPitch = document.querySelector('.twistDownPitch');
 var twistUpPitch = document.querySelector('.twistUpPitch');
 
+var tempo300 = document.querySelector('.threehundred');
+var tempo200 = document.querySelector('.twohundred');
+var tempo150 = document.querySelector('.onefifty');
+
 var mouseTrackButton = document.querySelector('.mouseTrackButton');
 var pitchTrackButton = document.querySelector('.pitchTrackButton');
 var gridlockedButton = document.querySelector('.gridlockedButton');
@@ -117,6 +121,8 @@ var acidSequential = document.querySelector('.acidSequential');
 
 var filterSweep = document.querySelector('.filterSweep');
 var randomizeWaveform = document.querySelector('.randomizeWaveform');
+
+var tempoSlide = document.querySelector('.tempoSlide');
 
 var stopVariance = document.querySelector('.stopVariance');
 
@@ -192,6 +198,18 @@ gridlockedButton.onclick = function() {
   } else {
     gridlocked = true;
   }
+}
+
+tempo300.onclick = function() {
+  tempo = 300;
+}
+
+tempo200.onclick = function() {
+  tempo = 200;
+}
+
+tempo150.onclick = function() {
+  tempo = 150;
 }
 
 document.onmousemove = updatePage;
@@ -593,6 +611,8 @@ var acidseq2 = function () {
 
 var stepInSequence = 0;
 
+var tempo = 300;
+
 var acidSequentialFunc = function() {
   pitchTrack = false;
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
@@ -612,11 +632,11 @@ var acidSequentialFunc = function() {
       oscillator1.frequency.value = BoctaveThree;
       oscillator2.frequency.value = BoctaveTwo;
       stepInSequence += 1;
-      variance = setTimeout(acidSequentialFunc, 300);
+      variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 1) {
       oscillator1.frequency.value = DsharpOctaveThree;
       stepInSequence += 1;
-      variance = setTimeout(acidSequentialFunc, 300);
+      variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 2) {
       oscillator1.frequency.value = FsharpOctaveThree;
       oscillator2.frequency.value = BoctaveThree;
@@ -629,7 +649,7 @@ var acidSequentialFunc = function() {
         lowPassFilter.frequency.value = Math.random() * 2000;
       }
 
-      variance = setTimeout(acidSequentialFunc, 600);
+      variance = setTimeout(acidSequentialFunc, tempo * 2);
     } else if (stepInSequence === 3) {
       oscillator1.frequency.value = FsharpOctaveTwo;
 
@@ -640,12 +660,12 @@ var acidSequentialFunc = function() {
       }
 
       stepInSequence += 1;
-      variance = setTimeout(acidSequentialFunc, 300);
+      variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 4) { 
       oscillator1.frequency.value = AoctaveOne;
       oscillator2.frequency.value = BoctaveTwo;
       stepInSequence += 1;
-      variance = setTimeout(acidSequentialFunc, 300);
+      variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 5) {
       oscillator1.frequency.value = BoctaveOne;
       oscillator2.frequency.value = BoctaveThree;
@@ -655,7 +675,7 @@ var acidSequentialFunc = function() {
       }
 
       stepInSequence = 0;
-      variance = setTimeout(acidSequentialFunc, 300);
+      variance = setTimeout(acidSequentialFunc, tempo);
     }
 
   } else {
@@ -703,6 +723,12 @@ var filterSweepFunc = function() {
   } else {
     lowPassFilter.frequency.value = 0;
   }
+}
+
+// tempo effects
+
+var tempoSlideUp = function() {
+  tempo += 1;
 }
 
 // waveform randomization
@@ -766,11 +792,12 @@ tonalVarianceBass.onclick = function() {
 // sequences
 
 psyBass.onclick = function () {
-  variance = setInterval(psyBassFunc, 150);
+  variance = setInterval(psyBassFunc, tempo); // 150
 }
 
 acidSequence.onclick = function () {
-  variance = setInterval(acidseq2, 200);
+  variance = setInterval(acidseq2, tempo); // 200
+  console.log(tempo);
 }
 
 acidSequential.onclick = function() {
@@ -787,6 +814,12 @@ filterSweep.onclick = function() {
 
 randomizeWaveform.onclick = function() {
   variance = setInterval(randomWaveFunc, 300);
+}
+
+//
+
+tempoSlide.onclick = function() {
+  variance = setInterval(tempoSlideUp, 100);
 }
 
 //
