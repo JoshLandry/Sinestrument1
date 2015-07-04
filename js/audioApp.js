@@ -211,9 +211,9 @@ tempo200.onclick = function() {
   tempo = 200;
 }
 
-tempo150.onclick = function() {
-  tempo = 150;
-}
+// tempo150.onclick = function() {
+//   tempo = 150;
+// }
 
 var userTempo;
 
@@ -224,7 +224,7 @@ tempoSubmit.onclick = function() {
     alert("This is not a valid tempo");
   } else {
     console.log(userTempo);
-    tempo = document.querySelector('.userTempo').value;
+    tempo = ( 30000 / userTempo );
   }
 }
 
