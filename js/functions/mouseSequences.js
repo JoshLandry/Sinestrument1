@@ -1,3 +1,14 @@
+var noteSubdivision = function() {
+  
+  if( (randomizer1 / 500) < .5) {
+    oscillator1.frequency.value = 196.00; // G3
+    console.log("sub A");
+  } else {
+    oscillator1.frequency.value = 87.31; // F2
+    console.log("sub B");
+  }
+}
+
 var psyBassFunc = function () {
 
   pitchTrack = false;

@@ -2,6 +2,26 @@
 
 var variance;
 
+var slideUp = function () {
+  oscillator1.frequency.value += pitchIncrement;
+  oscillator2.frequency.value += pitchIncrement;
+}
+
+var slideDown = function() {
+  oscillator1.frequency.value -= pitchIncrement;
+  oscillator2.frequency.value -= pitchIncrement;
+}
+
+var twistUp = function() {
+  oscillator1.frequency.value += pitchIncrement;
+  oscillator2.frequency.value -= pitchIncrement;
+}
+
+var twistDown = function() {
+  oscillator1.frequency.value -= pitchIncrement;
+  oscillator2.frequency.value += pitchIncrement;
+}
+
 var varianceFunc = function() { 
 
   if( Math.random() < .3 ) {

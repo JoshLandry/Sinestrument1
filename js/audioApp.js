@@ -151,28 +151,6 @@ var pitchSlide;
 
 //
 
-var slideUp = function () {
-  oscillator1.frequency.value += pitchIncrement;
-  oscillator2.frequency.value += pitchIncrement;
-}
-
-var slideDown = function() {
-  oscillator1.frequency.value -= pitchIncrement;
-  oscillator2.frequency.value -= pitchIncrement;
-}
-
-var twistUp = function() {
-  oscillator1.frequency.value += pitchIncrement;
-  oscillator2.frequency.value -= pitchIncrement;
-}
-
-var twistDown = function() {
-  oscillator1.frequency.value -= pitchIncrement;
-  oscillator2.frequency.value += pitchIncrement;
-}
-
-//
-
 // setPitch.onclick = function() {
 //   pitchIncrement = document.querySelector('.pitchIncrement').value;
 //   console.log(pitchIncrement);
@@ -234,10 +212,6 @@ tempo200.onclick = function() {
   tempo = 200;
 }
 
-// tempo150.onclick = function() {
-//   tempo = 150;
-// }
-
 var userTempo;
 
 tempoSubmit.onclick = function() {
@@ -290,69 +264,6 @@ function updatePage(e) {
 
       gainNode.gain.value = .7 * maxVol;
     }
-}
-
-var gate;
-
-var gateFunc = function() {
-  lowPassFilter.frequency.value = 0;
-}
-
-var noteSubdivision = function() {
-  
-  if( (randomizer1 / 500) < .5) {
-    oscillator1.frequency.value = 196.00; // G3
-    console.log("sub A");
-  } else {
-    oscillator1.frequency.value = 87.31; // F2
-    console.log("sub B");
-  }
-}
-
-var stepInSequence = 0;
-
-var tempo = 300;
-
-// filter modulation
-
-var filterSweepFunc = function() {
-  if(lowPassFilter.frequency.value < 6000) {
-    lowPassFilter.frequency.value += 10
-  } else {
-    lowPassFilter.frequency.value = 0;
-  }
-}
-
-// tempo effects
-
-var tempoSlideUp = function() {
-  tempo += 1;
-}
-
-var tempoSlideDown = function() {
-  tempo -= 1;
-}
-
-// waveform randomization
-
-var randomWaveFunc = function() {
-  if(Math.random() < .5) {
-    oscillator1.type = "square";
-  } else {
-    oscillator2.type = "sine";
-  }
-
-  if(Math.random() < .5) {
-    oscillator1.type = "sine";
-  } else {
-    oscillator2.type = "triangle";
-  }
-
-  if(Math.random() < .5) {
-    oscillator1.type = "sawtooth";
-  } else {
-    oscillator2.type = "square";
-  }
 }
 
 // BUTTON CLICK FUNCTIONS
