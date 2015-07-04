@@ -8,20 +8,30 @@
 </head>
 <body>
   <h1>Arp & Texture Generator</h1>
-    <button class="mute" data-muted="false">Mute</button>
+    
 
-    <button class="lowerPitch">Lower Pitch</button>
-    <button class="raisePitch">Raise Pitch</button> <br>
-    <button class="twistUpPitch">Twist Left</button>
-    <button class="twistDownPitch">Twist Right</button> <br>
-    <button class="mouseTrackButton">Mouse Tracking</button>
-    <button class="pitchTrackButton">Pitch Tracking</button> 
-    <button class="gridlockedButton">Gridlock</button><br>
-    <button class="hundredMsVariance">Hundred Ms Variance</button>
-    <button class="twoHundredMsVariance">Two Hundred Ms Variance</button>
-    <button class="rapidVariance">Rapid Variance</button>
-    <button class="randomVariance">Random Variance</button>
-    <button class="minuteVariance">Sputter Out</button> <br>
+    <h3>Settings</h3>
+        <button class="mute" data-muted="false">Mute</button>
+        <button class="gridlockedButton">Gridlock</button> <br>
+        <button class="mouseTrackButton">Mouse Tracking</button>
+        <button class="pitchTrackButton">Pitch Tracking</button> <br>
+        <p> Tempo: </p>
+            <button class="threehundred">300</button>
+            <button class="twohundred">200</button>
+            <button class="onefifty">150</button> <br>
+
+    <h3>Pitch Twisters</h3>
+        <button class="lowerPitch">Spiral Down</button>
+        <button class="raisePitch">Spiral Up</button>
+        <button class="twistUpPitch">Twist Left</button>
+        <button class="twistDownPitch">Twist Right</button> <br>
+<!--     <button class="hundredMsVariance">Hundred Ms Variance</button> -->
+        <button class="twoHundredMsVariance">200ms Variance</button>
+        <button class="rapidVariance">Rapid Variance</button>
+        <button class="randomVariance">Random Variance</button>
+        <button class="minuteVariance">Sputter Out</button> <br>
+
+    <h3>Sequences</h3>
     <button class="tonalVariance">Tonal Variance 1</button> 
     <button class="tonalVarianceScale">Tonal Variance 2</button> 
     <button class="tonalVarianceBass">Tonal Variance 3</button> <br>
@@ -30,10 +40,7 @@
     <button class="acidSequential">Sequential Arp</button> <br>
     <button class="filterSweep">Filter Sweep</button>
     <button class="randomizeWaveform">Randomize Waveform</button>
-    <button class="tempoSlide">Tempo Slide</button><br>
-    <button class="threehundred">300</button>
-    <button class="twohundred">200</button>
-    <button class="onefifty">150</button> <br>
+    <button class="tempoSlide">Tempo Slide</button><br> <br>
     <button class="stopVariance">Stop Variance</button>
     <script src="./js/audioApp.js"></script>
 </body>

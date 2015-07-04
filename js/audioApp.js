@@ -759,9 +759,9 @@ rapidVariance.onclick = function() {
   variance = setInterval(varianceFunc, 30);
 }
 
-hundredMsVariance.onclick = function() {
-  variance = setInterval(varianceFunc, 100);
-}
+// hundredMsVariance.onclick = function() {
+//   variance = setInterval(varianceFunc, 100);
+// }
 
 twoHundredMsVariance.onclick = function() {
   variance = setInterval(varianceFunc, 200);
