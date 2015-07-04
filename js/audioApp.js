@@ -537,11 +537,11 @@ var acidseq2 = function () {
   pitchTrack = false;
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
   waveform = setTimeout(randomWaveFunc, 400);
-  oscillator1.frequency.value = BoctaveOne;
-  oscillator2.frequency.value = DsharpOctaveOne;
+  oscillator1.frequency.value = toneDictionary.BoctaveOne;
+  oscillator2.frequency.value = toneDictionary.DsharpOctaveOne;
 
   if ( Math.random() <.3 ) {
-    oscillator1.frequency.value = BoctaveOne;
+    oscillator1.frequency.value = toneDictionary.BoctaveOne;
     lowPassFilter.frequency.value = 2000;
 
     if (Math.random() < .5) {
@@ -552,22 +552,22 @@ var acidseq2 = function () {
 
     console.log("B"); 
   } else if ( (randomizer1 / 500) < .3) {
-    oscillator1.frequency.value = DsharpOctaveOne;
+    oscillator1.frequency.value = toneDictionary.DsharpOctaveOne;
     gate = setTimeout(gateFunc, 140);
     console.log("A");
   } else if ((randomizer1 / 1000) <.3) {
     gate = setTimeout(gateFunc, 105);
-    oscillator1.frequency.value = BoctaveOne;
-    oscillator2.frequency.value = FsharpOctaveOne;
+    oscillator1.frequency.value = toneDictionary.BoctaveOne;
+    oscillator2.frequency.value = toneDictionary.FsharpOctaveOne;
     console.log("C");
   } else if (( (randomizer2 * -1) / 1000) <.6) {
     gate = setTimeout(gateFunc, 190);
-    oscillator1.frequency.value = AoctaveOne;
-    oscillator2.frequency.value = BoctaveOne;
+    oscillator1.frequency.value = toneDictionary.AoctaveOne;
+    oscillator2.frequency.value = toneDictionary.BoctaveOne;
     console.log("D");
   } else if ((randomizer1 / 1000) <.7) {
-    oscillator1.frequency.value = BoctaveOne;
-    oscillator2.frequency.value = BoctaveTwo;
+    oscillator1.frequency.value = toneDictionary.BoctaveOne;
+    oscillator2.frequency.value = toneDictionary.BoctaveTwo;
     console.log("E");
   } else {  
     if (Math.random() < .5) {
@@ -575,8 +575,8 @@ var acidseq2 = function () {
     } else {
       gate = setTimeout(gateFunc, 175);
     }
-    oscillator1.frequency.value = DsharpOctaveTwo;
-    oscillator2.frequency.value = DsharpOctaveOne;
+    oscillator1.frequency.value = toneDictionary.DsharpOctaveTwo;
+    oscillator2.frequency.value = toneDictionary.DsharpOctaveOne;
     console.log("F");
   }
 
@@ -606,17 +606,17 @@ var acidSequentialFunc = function() {
     }
     
     if(stepInSequence === 0 ) {
-      oscillator1.frequency.value = BoctaveThree;
-      oscillator2.frequency.value = BoctaveTwo;
+      oscillator1.frequency.value = toneDictionary.BoctaveThree;
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 1) {
-      oscillator1.frequency.value = DsharpOctaveThree;
+      oscillator1.frequency.value = toneDictionary.DsharpOctaveThree;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 2) {
-      oscillator1.frequency.value = FsharpOctaveThree;
-      oscillator2.frequency.value = BoctaveThree;
+      oscillator1.frequency.value = toneDictionary.FsharpOctaveThree;
+      oscillator2.frequency.value = toneDictionary.BoctaveThree;
       oscillator1.type = "sawtooth";
       stepInSequence += 1;
 
@@ -628,10 +628,10 @@ var acidSequentialFunc = function() {
 
       variance = setTimeout(acidSequentialFunc, tempo * 2);
     } else if (stepInSequence === 3) {
-      oscillator1.frequency.value = FsharpOctaveTwo;
+      oscillator1.frequency.value = toneDictionary.FsharpOctaveTwo;
 
       if( Math.random() < .5 ) {
-        oscillator2.frequency.value = DsharpOctaveThree;
+        oscillator2.frequency.value = toneDictionary.DsharpOctaveThree;
       } else {
         lowPassFilter.frequency.value = Math.random() * 4000;
       }
@@ -639,16 +639,16 @@ var acidSequentialFunc = function() {
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 4) { 
-      oscillator1.frequency.value = AoctaveOne;
-      oscillator2.frequency.value = BoctaveTwo;
+      oscillator1.frequency.value = toneDictionary.AoctaveOne;
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, tempo);
     } else if (stepInSequence === 5) {
-      oscillator1.frequency.value = BoctaveOne;
-      oscillator2.frequency.value = BoctaveThree;
+      oscillator1.frequency.value = toneDictionary.BoctaveOne;
+      oscillator2.frequency.value = toneDictionary.BoctaveThree;
 
       if (Math.random() < .3) {
-        oscillator2.frequency.value = CoctaveThree;
+        oscillator2.frequency.value = toneDictionary.CoctaveThree;
       }
 
       stepInSequence = 0;
@@ -660,31 +660,31 @@ var acidSequentialFunc = function() {
     waveform = setTimeout(randomWaveFunc, 200);
 
     if(stepInSequence === 0 ) {
-      oscillator1.frequency.value = BoctaveThree;
-      oscillator2.frequency.value = BoctaveTwo;
+      oscillator1.frequency.value = toneDictionary.BoctaveThree;
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
     } else if (stepInSequence === 1) {
-      oscillator1.frequency.value = DsharpOctaveThree;
+      oscillator1.frequency.value = toneDictionary.DsharpOctaveThree;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
     } else if (stepInSequence === 2) {
-      oscillator1.frequency.value = FsharpOctaveThree;
-      oscillator2.frequency.value = BoctaveThree;
+      oscillator1.frequency.value = toneDictionary.FsharpOctaveThree;
+      oscillator2.frequency.value = toneDictionary.BoctaveThree;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
     } else if (stepInSequence === 3) {
-      oscillator1.frequency.value = FsharpOctaveTwo;
+      oscillator1.frequency.value = toneDictionary.FsharpOctaveTwo;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
     } else if (stepInSequence === 4) { 
-      oscillator1.frequency.value = AoctaveOne;
-      oscillator2.frequency.value = BoctaveTwo;
+      oscillator1.frequency.value = toneDictionary.AoctaveOne;
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo;
       stepInSequence += 1;
       variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
     } else if (stepInSequence === 5) {
-      oscillator1.frequency.value = BoctaveOne;
-      oscillator2.frequency.value = BoctaveThree;
+      oscillator1.frequency.value = toneDictionary.BoctaveOne;
+      oscillator2.frequency.value = toneDictionary.BoctaveThree;
       stepInSequence = 0;
       variance = setTimeout(acidSequentialFunc, ( Math.floor(Math.random() * 1000) ));
     }
@@ -819,44 +819,49 @@ stopVariance.onclick = function() {
 
 // Tone Dictionary
 
-var CoctaveOne = 32.70;
-var CsharpOctaveOne = 34.65;
-var DoctaveOne = 36.71;
-var DsharpOctaveOne = 38.89;
-var EoctaveOne = 41.20;
-var FoctaveOne = 43.65;
-var FsharpOctaveOne = 46.25;
-var GoctaveOne = 49.00;
-var GsharpOctaveOne = 51.91;
-var AoctaveOne = 55.00;
-var BflatOctaveOne = 58.27;
-var BoctaveOne = 61.74;
+var toneDictionary = {
+// octave 1
+  CoctaveOne: 32.70,
+  CsharpOctaveOne: 34.65,
+  DoctaveOne: 36.71,
+  DsharpOctaveOne: 38.89,
+  EoctaveOne: 41.20,
+  FoctaveOne: 43.65,
+  FsharpOctaveOne: 46.25,
+  GoctaveOne: 49.00,
+  GsharpOctaveOne: 51.91,
+  AoctaveOne: 55.00,
+  BflatOctaveOne: 58.27,
+  BoctaveOne: 61.74,
+// octave 2
+  CoctaveTwo: 65.41,
+  CsharpOctaveTwo: 69.30,
+  DoctaveTwo: 73.42,
+  DsharpOctaveTwo: 77.78,
+  EoctaveTwo: 82.41,
+  FoctaveTwo: 87.31,
+  FsharpOctaveTwo: 92.50,
+  GoctaveTwo: 98.00,
+  GsharpOctaveTwo: 103.83,
+  AoctaveTwo: 110.00,
+  AsharpOctaveTwo: 116.54,
+  BoctaveTwo: 123.47,
+// octave 3
+  CoctaveThree: 130.81,
+  CsharpOctaveThree: 138.59,
+  DoctaveThree: 146.83,
+  DsharpOctaveThree: 155.56,
+  EoctaveThree: 164.81,
+  FoctaveThree: 174.61,
+  FsharpOctaveThree: 185.00,
+  GoctaveThree: 196.00,
+  GsharpOctaveThree: 207.65,
+  AoctaveThree: 220.00,
+  AsharpOctaveThree: 233.08,
+  BoctaveThree: 246.94
+}
 
-var CoctaveTwo = 65.41;
-var CsharpOctaveTwo = 69.30;
-var DoctaveTwo = 73.42;
-var DsharpOctaveTwo = 77.78;
-var EoctaveTwo = 82.41;
-var FoctaveTwo = 87.31;
-var FsharpOctaveTwo = 92.50;
-var GoctaveTwo = 98.00;
-var GsharpOctaveTwo = 103.83;
-var AoctaveTwo = 110.00
-var AsharpOctaveTwo = 116.54;
-var BoctaveTwo = 123.47;
 
-var CoctaveThree = 130.81;
-var CsharpOctaveThree = 138.59;
-var DoctaveThree = 146.83;
-var DsharpOctaveThree = 155.56;
-var EoctaveThree = 164.81;
-var FoctaveThree = 174.61;
-var FsharpOctaveThree = 185.00;
-var GoctaveThree = 196.00;
-var GsharpOctaveThree = 207.65;
-var AoctaveThree = 220.00;
-var AsharpOctaveThree = 233.08;
-var BoctaveThree = 246.94;
 
 
 
