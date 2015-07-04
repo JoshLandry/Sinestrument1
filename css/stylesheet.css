@@ -2,9 +2,19 @@ body {
   background-image: url("./img/background.jpg");
   background-color: black;
   background-size: cover;
-  color: rgb(94,215,133);
 }
 
-h3, p {
+h1 {
+  color: rgb(94,215,133);
+  text-align: center;
+}
+
+h3 {
   color: rgb(0,181,236);
 }
+
+h6, p {
+  color: rgb(0,181,236);
+  text-align: center;
+}
+

@@ -124,6 +124,7 @@ var filterSweep = document.querySelector('.filterSweep');
 var randomizeWaveform = document.querySelector('.randomizeWaveform');
 
 var tempoSlide = document.querySelector('.tempoSlide');
+var tempoSlide2 = document.querySelector('.tempoSlideUp');
 
 var stopVariance = document.querySelector('.stopVariance');
 
@@ -749,6 +750,10 @@ var tempoSlideUp = function() {
   tempo += 1;
 }
 
+var tempoSlideDown = function() {
+  tempo -= 1;
+}
+
 // waveform randomization
 
 var randomWaveFunc = function() {
@@ -838,6 +843,10 @@ randomizeWaveform.onclick = function() {
 
 tempoSlide.onclick = function() {
   variance = setInterval(tempoSlideUp, 100);
+}
+
+tempoSlide2.onclick = function() {
+  variance = setInterval(tempoSlideDown, 100);
 }
 
 //
