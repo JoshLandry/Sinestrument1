@@ -1,12 +1,20 @@
+var mouseTrack = true;
+
+var pitchTrack = true;
+
+var gridlocked = true;
+
+var stepInSequence = 0;
+
+var tempo = 300;
+
+// note envelope
+
 var gate;
 
 var gateFunc = function() {
   lowPassFilter.frequency.value = 0;
 }
-
-var stepInSequence = 0;
-
-var tempo = 300;
 
 // filter modulation
 
