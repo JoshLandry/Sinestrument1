@@ -100,6 +100,7 @@ var twistUpPitch = document.querySelector('.twistUpPitch');
 var tempo300 = document.querySelector('.threehundred');
 var tempo200 = document.querySelector('.twohundred');
 var tempo150 = document.querySelector('.onefifty');
+var tempoSubmit = document.querySelector('.tempoSubmit');
 
 var mouseTrackButton = document.querySelector('.mouseTrackButton');
 var pitchTrackButton = document.querySelector('.pitchTrackButton');
@@ -200,6 +201,8 @@ gridlockedButton.onclick = function() {
   }
 }
 
+// Tempo Settings
+
 tempo300.onclick = function() {
   tempo = 300;
 }
@@ -211,6 +214,21 @@ tempo200.onclick = function() {
 tempo150.onclick = function() {
   tempo = 150;
 }
+
+var userTempo;
+
+tempoSubmit.onclick = function() {
+  userTempo = document.querySelector('.userTempo').value;
+
+  if(!userTempo) {
+    alert("This is not a valid tempo");
+  } else {
+    console.log(userTempo);
+    tempo = document.querySelector('.userTempo').value;
+  }
+}
+
+//
 
 document.onmousemove = updatePage;
 
