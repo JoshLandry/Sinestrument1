@@ -87,6 +87,14 @@ mute.onclick = function() {
   };
 }
 
+// reset button
+
+var reset = document.querySelector('.reset');
+
+reset.onclick = function() {
+  location.reload();
+}
+
 // pitch buttons
 
 var pitchIncrement = 80;
@@ -97,20 +105,28 @@ var lowerPitch = document.querySelector('.lowerPitch');
 var twistDownPitch = document.querySelector('.twistDownPitch');
 var twistUpPitch = document.querySelector('.twistUpPitch');
 
+var twoHundredMsVariance = document.querySelector('.twoHundredMsVariance');
+var rapidVariance = document.querySelector('.rapidVariance');
+var randomVariance = document.querySelector('.randomVariance');
+var minuteVariance = document.querySelector('.minuteVariance');
+
+// tempo buttons
+
 var tempo300 = document.querySelector('.threehundred');
 var tempo200 = document.querySelector('.twohundred');
 var tempo150 = document.querySelector('.onefifty');
 var tempoSubmit = document.querySelector('.tempoSubmit');
 
+var tempoSlide = document.querySelector('.tempoSlide');
+var tempoSlide2 = document.querySelector('.tempoSlideUp');
+
+// settings buttons
+
 var mouseTrackButton = document.querySelector('.mouseTrackButton');
 var pitchTrackButton = document.querySelector('.pitchTrackButton');
 var gridlockedButton = document.querySelector('.gridlockedButton');
 
-var hundredMsVariance = document.querySelector('.hundredMsVariance');
-var twoHundredMsVariance = document.querySelector('.twoHundredMsVariance');
-var rapidVariance = document.querySelector('.rapidVariance');
-var randomVariance = document.querySelector('.randomVariance');
-var minuteVariance = document.querySelector('.minuteVariance');
+// sequence buttons
 
 var tonalVariance = document.querySelector('.tonalVariance');
 var tonalVarianceScale = document.querySelector('.tonalVarianceScale');
@@ -123,11 +139,9 @@ var acidSequential = document.querySelector('.acidSequential');
 var filterSweep = document.querySelector('.filterSweep');
 var randomizeWaveform = document.querySelector('.randomizeWaveform');
 
-var tempoSlide = document.querySelector('.tempoSlide');
-var tempoSlide2 = document.querySelector('.tempoSlideUp');
+// stop
 
 var stopVariance = document.querySelector('.stopVariance');
-
 
 var pitchSlide;
 
