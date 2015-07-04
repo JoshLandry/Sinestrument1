@@ -197,8 +197,12 @@ pitchTrackButton.onclick = function() {
 gridlockedButton.onclick = function() {
   if(gridlocked) {
     gridlocked = false;
+    gridlockedButton.setAttribute('data-locked', 'false');
+    gridlockedButton.innerHTML = "Gridlock";
   } else {
     gridlocked = true;
+    gridlockedButton.setAttribute('data-locked', 'true');
+    gridlockedButton.innerHTML = "Unlock Grid";
   }
 }
 
