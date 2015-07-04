@@ -128,8 +128,8 @@ var gridlockedButton = document.querySelector('.gridlockedButton');
 
 // sequence buttons
 
-var tonalVariance = document.querySelector('.tonalVariance');
-var tonalVarianceScale = document.querySelector('.tonalVarianceScale');
+// var tonalVariance = document.querySelector('.tonalVariance');
+// var tonalVarianceScale = document.querySelector('.tonalVarianceScale');
 var tonalVarianceBass = document.querySelector('.tonalVarianceBass');
 
 var psyBass = document.querySelector('.psyBass');
@@ -378,66 +378,6 @@ var varianceFunc3 = function() {
   } else {
     oscillator1.frequency.value = oscillator1.frequency.value / (Math.random() * 1.3);
     oscillator2.frequency.value = oscillator2.frequency.value * (Math.random() * .9);
-    lowPassFilter.frequency.value = 1750;
-  }
-};
-
-var tonalVarianceFunc1 = function() { 
-
-  if( Math.random() < .3 ) {
-
-    if( (Math.random() > .5) ) {
-      oscillator1.frequency.value = 1879.69;
-      lowPassFilter.frequency.value = 4000;
-    } else {
-      oscillator1.frequency.value = 1674.62;
-      lowPassFilter.frequency.value = 1700;
-    }
-
-    if( (Math.random() > .5) ) {
-      oscillator2.frequency.value = 1408.18;
-      lowPassFilter.frequency.value = 6000;
-    } else {
-      oscillator2.frequency.value = 1254.55;
-      lowPassFilter.frequency.value = 3750;
-    }
-  } else if ( Math.random() < .5) {
-    oscillator1.frequency.value = 837.31
-    oscillator2.frequency.value = 790.31
-    lowPassFilter.frequency.value = (Math.random() * 3000);
-  } else {
-    oscillator1.frequency.value = 627.27
-    oscillator2.frequency.value = 939.85
-    lowPassFilter.frequency.value = 1750;
-  }
-};
-
-var tonalVarianceFunc2 = function() { 
-
-  if( Math.random() < .3 ) {
-
-    if( (Math.random() > .5) ) {
-      oscillator1.frequency.value = 790.31;
-      lowPassFilter.frequency.value = 4000;
-    } else {
-      oscillator1.frequency.value = 627.27;
-      lowPassFilter.frequency.value = 1700;
-    }
-
-    if( (Math.random() > .5) ) {
-      oscillator2.frequency.value = 558.84;
-      lowPassFilter.frequency.value = 6000;
-    } else {
-      oscillator2.frequency.value = 1054.94;
-      lowPassFilter.frequency.value = 3750;
-    }
-  } else if ( Math.random() < .5) {
-    oscillator1.frequency.value = 704.09
-    oscillator2.frequency.value = 1408.08
-    lowPassFilter.frequency.value = (Math.random() * 1500);
-  } else {
-    oscillator1.frequency.value = 627.27
-    oscillator2.frequency.value = 1580.63
     lowPassFilter.frequency.value = 1750;
   }
 };
@@ -818,15 +758,18 @@ minuteVariance.onclick = function() {
 
 // tonal variances
 
-tonalVariance.onclick = function() {
-  variance = setInterval(tonalVarianceFunc1, 200);
-}
+// tonalVariance.onclick = function() {
+//   variance = setInterval(tonalVarianceFunc1, 200);
+// }
 
-tonalVarianceScale.onclick = function() {
-  variance = setInterval(tonalVarianceFunc2, 200);
-}
+// tonalVarianceScale.onclick = function() {
+//   variance = setInterval(tonalVarianceFunc2, 200);
+// }
+
+var filterSweepingVariance;
 
 tonalVarianceBass.onclick = function() {
+  filterSweepingVariance = setInterval(filterSweepFunc, 1);
   variance = setInterval(tonalVarianceFunc3, 300);
 }
 
@@ -854,7 +797,7 @@ filterSweep.onclick = function() {
 // waveform randomization
 
 randomizeWaveform.onclick = function() {
-  variance = setInterval(randomWaveFunc, 300);
+  variance = setInterval(randomWaveFunc, tempo);
 }
 
 //
