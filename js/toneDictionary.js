@@ -50,5 +50,18 @@ var toneDictionary = {
   GsharpOctaveFour: 415.30,
   AoctaveFour: 440.00,
   AsharpOctaveFour: 466.16,
-  BoctaveFour: 493.88
+  BoctaveFour: 493.88,
+// octave 5
+  CoctaveFive: 523.25,
+  CsharpOctaveFive: 554.37,
+  DoctaveFive: 587.33,
+  DsharpOctaveFive: 622.25,
+  EoctaveFive: 659.25,
+  FoctaveFive: 698.46,
+  FsharpOctaveFive: 739.99,
+  GoctaveFive: 783.99,
+  GsharpOctaveFive: 830.61,
+  AoctaveFive: 880.00,
+  AsharpOctaveFive: 932.33,
+  BoctaveFive: 987.77
 }
