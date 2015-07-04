@@ -6,11 +6,6 @@ var oscillator1 = audioCtx.createOscillator();
 var oscillator2 = audioCtx.createOscillator();
 var gainNode = audioCtx.createGain();
 
-// oscillator1.connect(biquadFilter);
-// oscillator2.connect(biquadFilter);
-// biquadFilter.connect(gainNode);
-// gainNode.connect(audioCtx.destination);
-
 // filter (low shelf)
 
 var biquadFilter = audioCtx.createBiquadFilter();
@@ -32,9 +27,7 @@ var bandPassFilter = audioCtx.createBiquadFilter();
 
 bandPassFilter.type = "bandpass";
 
-// convolver 
-
-
+// convolver
 
 // routing
 
@@ -70,38 +63,3 @@ oscillator2.onended = function() {
 }
 
 gainNode.gain.value = initialVol;
-
-//
-
-document.onmousemove = updatePage;
-
-var WIDTH = window.innerWidth;
-var HEIGHT = window.innerHeight;
-
-var CurX;
-var CurY;
-
-var randomizer1;
-var randomizer2;
-
-var maxFreq = 6000;
-var maxVol = 0.02;
-
-function updatePage(e) {
-
-    if(mouseTrack) {
-      KeyFlag = false;
-
-      CurX = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
-      CurY = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
-      
-      if(pitchTrack) {
-        oscillator1.frequency.value = ( (CurX/WIDTH) * maxFreq / 4);
-        oscillator2.frequency.value = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
-      }
-      randomizer1 = ( (CurX/WIDTH) * maxFreq / 4);
-      randomizer2 = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
-
-      gainNode.gain.value = .7 * maxVol;
-    }
-}

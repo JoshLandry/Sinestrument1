@@ -8,6 +8,9 @@ var stepInSequence = 0;
 
 var tempo = 300;
 
+var maxFreq = 6000;
+var maxVol = 0.02;
+
 // note envelope
 
 var gate;
