@@ -8,16 +8,16 @@ var tonalVarianceFunc3 = function() {
   }
 
   if (Math.random() < .5) {
-    gate = setTimeout(gateFunc, 115 );
+    gate = setTimeout(gateFunc, tempo * .3834);
   } else if (Math.random() <.5) {
-    gate = setTimeout(gateFunc, 175);
+    gate = setTimeout(gateFunc, tempo * .5833);
   } else {
-    gate = setTimeout(gateFunc, 235);
+    gate = setTimeout(gateFunc, tempo * .7833);
   }
 
-  if( Math.random() < .25) {
-    variance = setTimeout(tonalVarianceFunc3, 150);
-  }
+  // if( Math.random() < .25) {
+  //   variance = setTimeout(tonalVarianceFunc3, tempo / 2);
+  // }
 
   if( Math.random() < .3 ) {
     lowPassFilter.frequency.value = Math.random() * 100;
@@ -65,5 +65,6 @@ var tonalVarianceFunc3 = function() {
     lowPassFilter.frequency.value = 1750;
   }
 
-  waveform = setTimeout(randomWaveFunc, 300);
+  variance = setTimeout(tonalVarianceFunc3, tempo);
+  waveform = setTimeout(randomWaveFunc, tempo);
 };

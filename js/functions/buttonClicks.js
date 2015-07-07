@@ -181,15 +181,6 @@ minuteVariance.onclick = function() {
   variance = setInterval(varianceFunc3, (Math.random() * 400));
 }
 
-// tonal variances
-
-var filterSweepingVariance;
-
-tonalVarianceBass.onclick = function() {
-  filterSweepingVariance = setInterval(filterSweepFunc, 1);
-  variance = setInterval(tonalVarianceFunc3, 300);
-}
-
 // filter sweeps
 
 filterSweep.onclick = function() {
@@ -214,17 +205,28 @@ tempoSlide2.onclick = function() {
 
 // sequences
 
-psyBass.onclick = function () {
-  variance = setInterval(psyBassFunc, tempo); // 150
-}
+// fixed sequences
 
-acidSequence.onclick = function () {
-  acidseq2(); // tempo should be 200
-  console.log(tempo);
+var filterSweepingVariance;
+
+tonalVarianceBass.onclick = function() {
+  filterSweepingVariance = setInterval(filterSweepFunc, 1);
+  tonalVarianceFunc3();
+  // variance = setInterval(tonalVarianceFunc3, 300);
 }
 
 acidSequential.onclick = function() {
   acidSequentialFunc();
+}
+
+//
+
+psyBass.onclick = function () {
+  psyBassFunc();
+}
+
+acidSequence.onclick = function () {
+  acidseq2();
 }
 
 // scale sequences

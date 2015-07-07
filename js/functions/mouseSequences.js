@@ -16,6 +16,11 @@ var psyBassFunc = function () {
   oscillator2.frequency.value = 49.00 // G1
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
 
+  if(!gridlocked) {
+    tempo = Math.random() * 600;
+  } else {
+  }
+
   // if (Math.random() < .3) {
   //   gate = setTimeout(gateFunc, 140);
   // } else if (Math.random() <.3) {
@@ -35,37 +40,43 @@ var psyBassFunc = function () {
   // }
 
   if ( Math.random() <.3 ) {
-    gate = setTimeout(gateFunc, 175);
+    gate = setTimeout(gateFunc, tempo * 1.175);
     lowPassFilter.frequency.value = 2000;
-    console.log("B"); 
+    console.log("B");
+    variance = setTimeout(psyBassFunc, tempo);
   } else if ( (randomizer1 / 500) < .3) {
-    gate = setTimeout(gateFunc, 140);
+    gate = setTimeout(gateFunc, tempo * .933);
     console.log("A");
+    variance = setTimeout(psyBassFunc, tempo);
   } else if ((randomizer1 / 1000) <.3) {
-    gate = setTimeout(gateFunc, 105);
+    gate = setTimeout(gateFunc, tempo * .7);
     oscillator2.frequency.value = 123.47 // B3
     console.log("C");
+    variance = setTimeout(psyBassFunc, tempo);
   } else if (( (randomizer2 * -1) / 1000) <.6) {
-    gate = setTimeout(gateFunc, 190);
+    gate = setTimeout(gateFunc, tempo * 1.267);
     oscillator2.frequency.value = 130.81; // C3
     console.log("D");
+    variance = setTimeout(psyBassFunc, tempo);
   } else if ((randomizer1 / 1000) <.7) {
     oscillator2.frequency.value = 146.83; // D3
     console.log("E");
+    variance = setTimeout(psyBassFunc, tempo);
   } else {  
     if (Math.random() < .5) {
-      gate = setTimeout(gateFunc, 215);
+      gate = setTimeout(gateFunc, tempo * 1.433);
     } else {
-      gate = setTimeout(gateFunc, 175);
+      gate = setTimeout(gateFunc, tempo * 1.167);
     }
     oscillator1.frequency.value = 110.00; // A3
     console.log("F");
+    variance = setTimeout(psyBassFunc, tempo);
   }
 
-  waveform = setTimeout(randomWaveFunc, 150);
+  waveform = setTimeout(randomWaveFunc, tempo);
 
   if(Math.random() < .1) {
-  repeatingPattern = setTimeout(noteSubdivision, 150);
+  repeatingPattern = setTimeout(noteSubdivision, tempo);
   }
 }
 
@@ -138,15 +149,14 @@ var acidSequentialFunc = function() {
   pitchTrack = false;
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
   
-
   console.log(stepInSequence);
 
   if(gridlocked){
 
     if( Math.random() < .5 ) {
-      waveform = setTimeout(randomWaveFunc, 300);
+      waveform = setTimeout(randomWaveFunc, tempo * 1.5);
     } else {
-      waveform = setTimeout(randomWaveFunc, 450);
+      waveform = setTimeout(randomWaveFunc, tempo * 2);
     }
     
     if(stepInSequence === 0 ) {
