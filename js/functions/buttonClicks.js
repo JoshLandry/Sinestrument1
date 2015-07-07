@@ -261,14 +261,16 @@ var userNoteA;
 var userNoteB;
 var userNoteC;
 var userNoteD;
+var userNoteE;
 
 submitNotes.onclick = function() {
   userNoteA = document.querySelector('.userNoteA').value
   userNoteB = document.querySelector('.userNoteB').value
   userNoteC = document.querySelector('.userNoteC').value
   userNoteD = document.querySelector('.userNoteD').value
+  userNoteE = document.querySelector('.userNoteE').value
 
-  console.log(userNoteA + ", " + userNoteB + ", " + userNoteC + ", " + userNoteD)
+  console.log(userNoteA + ", " + userNoteB + ", " + userNoteC + ", " + userNoteD + ", " + userNoteE)
 }
 
 playUserArp.onclick = function() {
