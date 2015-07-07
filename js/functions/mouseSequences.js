@@ -71,9 +71,14 @@ var psyBassFunc = function () {
 
 var acidseq2 = function () {
 
+  if(!gridlocked) {
+    tempo = Math.random() * 600;
+  } else {
+  }
+
   pitchTrack = false;
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
-  waveform = setTimeout(randomWaveFunc, 400);
+  waveform = setTimeout(randomWaveFunc, tempo * 2);
   oscillator1.frequency.value = toneDictionary.BoctaveOne;
   oscillator2.frequency.value = toneDictionary.DsharpOctaveOne;
 
@@ -82,39 +87,45 @@ var acidseq2 = function () {
     lowPassFilter.frequency.value = 2000;
 
     if (Math.random() < .5) {
-          gate = setTimeout(gateFunc, 215);
+          gate = setTimeout(gateFunc, tempo * 1.075);
         } else {
-          gate = setTimeout(gateFunc, 175);
+          gate = setTimeout(gateFunc, tempo * .875);
         }
 
     console.log("B"); 
+    variance = setTimeout(acidseq2, tempo);
   } else if ( (randomizer1 / 500) < .3) {
     oscillator1.frequency.value = toneDictionary.DsharpOctaveOne;
-    gate = setTimeout(gateFunc, 140);
+    gate = setTimeout(gateFunc, tempo * .7);
     console.log("A");
+    variance = setTimeout(acidseq2, tempo);
   } else if ((randomizer1 / 1000) <.3) {
-    gate = setTimeout(gateFunc, 105);
+    gate = setTimeout(gateFunc, tempo * .525);
     oscillator1.frequency.value = toneDictionary.BoctaveOne;
     oscillator2.frequency.value = toneDictionary.FsharpOctaveOne;
     console.log("C");
+    variance = setTimeout(acidseq2, tempo);
   } else if (( (randomizer2 * -1) / 1000) <.6) {
-    gate = setTimeout(gateFunc, 190);
+    gate = setTimeout(gateFunc, tempo * .95);
     oscillator1.frequency.value = toneDictionary.AoctaveOne;
     oscillator2.frequency.value = toneDictionary.BoctaveOne;
     console.log("D");
+    variance = setTimeout(acidseq2, tempo);
   } else if ((randomizer1 / 1000) <.7) {
     oscillator1.frequency.value = toneDictionary.BoctaveOne;
     oscillator2.frequency.value = toneDictionary.BoctaveTwo;
     console.log("E");
+    variance = setTimeout(acidseq2, tempo);
   } else {  
     if (Math.random() < .5) {
-      gate = setTimeout(gateFunc, 215);
+      gate = setTimeout(gateFunc, tempo * 1.075);
     } else {
-      gate = setTimeout(gateFunc, 175);
+      gate = setTimeout(gateFunc, tempo * .875);
     }
     oscillator1.frequency.value = toneDictionary.DsharpOctaveTwo;
     oscillator2.frequency.value = toneDictionary.DsharpOctaveOne;
     console.log("F");
+    variance = setTimeout(acidseq2, tempo);
   }
 
   if(Math.random() < .1 ) {

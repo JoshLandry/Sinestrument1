@@ -219,7 +219,7 @@ psyBass.onclick = function () {
 }
 
 acidSequence.onclick = function () {
-  variance = setInterval(acidseq2, tempo); // 200
+  acidseq2(); // tempo should be 200
   console.log(tempo);
 }
 
