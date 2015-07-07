@@ -9,6 +9,10 @@ var cMajorScale = function() {
     stepInSequence = 0;
   }
 
+  if(!gridlocked) {
+    tempo = Math.random() * 800;
+  }
+
   if( Math.random() < .5 ) {
     waveform = setTimeout(randomWaveFunc, tempo);
   } else if ( Math.random() < .5 ) {
