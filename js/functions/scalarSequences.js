@@ -5,6 +5,8 @@ var cMajorScale = function() {
   console.log(stepInSequence);
   counter += 1;
 
+  waveform2 = setTimeout(gateFunc, tempo / randomizer1 * 70);
+
   if(stepInSequence > 7) {
     stepInSequence = 0;
   }
@@ -171,6 +173,8 @@ var lydianMode = function() {
 
   console.log(stepInSequence);
   counter += 1;
+
+  waveform2 = setTimeout(gateFunc, tempo / randomizer1 * 70);
 
   if(stepInSequence > 7) {
     stepInSequence = 0;
@@ -386,6 +390,78 @@ var locrianMode = function() {
     oscillator2.frequency.value = toneDictionary.CoctaveTwo
     stepInSequence = 0;
     variance = setTimeout(locrianMode, tempo);
+  }
+}
+
+var wholeToneScale = function() {
+
+  pitchTrack = false;
+  lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
+
+  console.log(stepInSequence);
+  counter += 1;
+
+  if(stepInSequence > 7) {
+    stepInSequence = 0;
+  }
+
+  if(!gridlocked) {
+    tempo = Math.random() * 800;
+  }
+
+  waveform2 = setTimeout(gateFunc, tempo / randomizer1 * 70);
+
+  if( Math.random() < .5 ) {
+    waveform = setTimeout(randomWaveFunc, tempo);
+  } else if ( Math.random() < .5 ) {
+    waveform = setTimeout(randomWaveFunc, tempo * 2);
+  } else if ( Math.random() < .5) {
+    waveform = setTimeout(randomWaveFunc, tempo / 2);
+  } else {
+    waveform = setTimeout(randomWaveFunc, tempo / 4);
+    waveform2 = setTimeout(gateFunc, tempo - (tempo / 4) );
+  }
+
+  if(stepInSequence === 0) {
+    oscillator1.frequency.value = toneDictionary.CoctaveThree
+    oscillator2.frequency.value = toneDictionary.EoctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 1) {
+    oscillator1.frequency.value = toneDictionary.DoctaveThree
+    oscillator2.frequency.value = toneDictionary.DoctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 2) {
+    oscillator1.frequency.value = toneDictionary.EoctaveThree
+    oscillator2.frequency.value = toneDictionary.CoctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 3) {
+    oscillator1.frequency.value = toneDictionary.FsharpOctaveThree
+    oscillator2.frequency.value = toneDictionary.DoctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 4) {
+    oscillator1.frequency.value = toneDictionary.GsharpOctaveThree
+    oscillator2.frequency.value = toneDictionary.EoctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 5) {
+    oscillator1.frequency.value = toneDictionary.AsharpOctaveThree
+    oscillator2.frequency.value = toneDictionary.FsharpOctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 6) {
+    oscillator1.frequency.value = toneDictionary.CoctaveFour
+    oscillator2.frequency.value = toneDictionary.GsharpOctaveTwo
+    stepInSequence += 1;
+    variance = setTimeout(wholeToneScale, tempo);
+  } else if (stepInSequence === 7) {
+    oscillator1.frequency.value = toneDictionary.CoctaveTwo
+    oscillator2.frequency.value = toneDictionary.AsharpOctaveTwo
+    stepInSequence = 0;
+    variance = setTimeout(wholeToneScale, tempo);
   }
 }
 
