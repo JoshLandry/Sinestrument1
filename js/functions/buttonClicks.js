@@ -144,25 +144,25 @@ randomizeSequence.onclick = function() {
 var pitchSlide;
 
 raisePitch.onclick = function() {
-  pitchSlide = window.setInterval(slideUp, 300);
+  pitchSlide = window.setInterval(slideUp, tempo);
 }
 
 lowerPitch.onclick = function() {
-  pitchSlide = window.setInterval(slideDown, 300);
+  pitchSlide = window.setInterval(slideDown, tempo);
 }
 
 twistDownPitch.onclick = function() {
-  pitchSlide = window.setInterval(twistUp, 100);
+  pitchSlide = window.setInterval(twistUp, tempo / 3);
 }
 
 twistUpPitch.onclick = function() {
-  pitchSlide = window.setInterval(twistDown, 100);
+  pitchSlide = window.setInterval(twistDown, tempo / 3);
 }
 
 // atonal variances
 
 rapidVariance.onclick = function() {
-  variance = setInterval(varianceFunc, 30);
+  variance = setInterval(varianceFunc, tempo / 10);
 }
 
 // hundredMsVariance.onclick = function() {
@@ -170,7 +170,7 @@ rapidVariance.onclick = function() {
 // }
 
 twoHundredMsVariance.onclick = function() {
-  variance = setInterval(varianceFunc, 200);
+  variance = setInterval(varianceFunc, tempo * .667);
 }
 
 randomVariance.onclick = function() {
@@ -184,7 +184,7 @@ minuteVariance.onclick = function() {
 // filter sweeps
 
 filterSweep.onclick = function() {
-  variance = setInterval(filterSweepFunc, 1);
+  variance = setInterval(filterSweepFunc, tempo / 100);
 }
 
 // waveform randomization
