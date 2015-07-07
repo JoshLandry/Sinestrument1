@@ -163,6 +163,137 @@ var cMajorScale = function() {
   }
 }
 
+
+var lydianMode = function() {
+
+  pitchTrack = false;
+  lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
+
+  console.log(stepInSequence);
+  counter += 1;
+
+  if(stepInSequence > 7) {
+    stepInSequence = 0;
+  }
+
+  if(!gridlocked) {
+    tempo = Math.random() * 800;
+  }
+
+  if( Math.random() < .5 ) {
+    waveform = setTimeout(randomWaveFunc, tempo);
+  } else if ( Math.random() < .5 ) {
+    waveform = setTimeout(randomWaveFunc, tempo * 2);
+  } else {
+    waveform = setTimeout(randomWaveFunc, tempo / 2);
+  }
+
+  if(!randomized) {
+    if(stepInSequence === 0) {
+      oscillator1.frequency.value = toneDictionary.FoctaveThree
+      oscillator2.frequency.value = toneDictionary.AoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 1) {
+      oscillator1.frequency.value = toneDictionary.GoctaveThree
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 2) {
+      oscillator1.frequency.value = toneDictionary.AoctaveThree
+      oscillator2.frequency.value = toneDictionary.CoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 3) {
+      oscillator1.frequency.value = toneDictionary.BoctaveThree
+      oscillator2.frequency.value = toneDictionary.DoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 4) {
+      oscillator1.frequency.value = toneDictionary.CoctaveThree
+      oscillator2.frequency.value = toneDictionary.EoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 5) {
+      oscillator1.frequency.value = toneDictionary.DoctaveThree
+      oscillator2.frequency.value = toneDictionary.CoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 6) {
+      oscillator1.frequency.value = toneDictionary.FoctaveThree
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 7) {
+      oscillator1.frequency.value = toneDictionary.GoctaveThree
+      oscillator2.frequency.value = toneDictionary.AoctaveTwo
+      stepInSequence = 0;
+      variance = setTimeout(lydianMode, tempo);
+    }
+  } else {
+    if(stepInSequence === 0) {
+      oscillator1.frequency.value = toneDictionary.FoctaveThree
+      oscillator2.frequency.value = toneDictionary.AoctaveTwo
+      
+      if( Math.random() < .5) {
+        stepInSequence += 1;
+      } else {
+        stepInSequence += 2;
+      }
+      
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 1) {
+      oscillator1.frequency.value = toneDictionary.GoctaveThree
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 2) {
+      oscillator1.frequency.value = toneDictionary.AoctaveThree
+      oscillator2.frequency.value = toneDictionary.CoctaveTwo
+      if( Math.random() < .5) {
+        stepInSequence += 1;
+      } else {
+        stepInSequence += 2;
+      }
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 3) {
+      oscillator1.frequency.value = toneDictionary.BoctaveThree
+      oscillator2.frequency.value = toneDictionary.DoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 4) {
+      oscillator1.frequency.value = toneDictionary.CoctaveThree
+      oscillator2.frequency.value = toneDictionary.EoctaveTwo
+      if( Math.random() < .5) {
+        stepInSequence += 1;
+      } else {
+        stepInSequence += 2;
+      }
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 5) {
+      oscillator1.frequency.value = toneDictionary.DoctaveThree
+      oscillator2.frequency.value = toneDictionary.CoctaveTwo
+      stepInSequence += 1;
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 6) {
+      oscillator1.frequency.value = toneDictionary.FoctaveThree
+      oscillator2.frequency.value = toneDictionary.BoctaveTwo
+      if( Math.random() < .5) {
+        stepInSequence += 1;
+      } else {
+        stepInSequence -= 2;
+      }
+      variance = setTimeout(lydianMode, tempo);
+    } else if (stepInSequence === 7) {
+      oscillator1.frequency.value = toneDictionary.GoctaveThree
+      oscillator2.frequency.value = toneDictionary.AoctaveTwo
+      stepInSequence = 0;
+      variance = setTimeout(lydianMode, tempo);
+    }
+  }
+}
+
+
 // var scaleTemplate = function() {
 
 //   if(stepInSequence === 0) {
