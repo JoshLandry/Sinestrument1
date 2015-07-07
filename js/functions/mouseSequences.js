@@ -21,25 +21,37 @@ var psyBassFunc = function () {
   } else {
   }
 
-  // if (Math.random() < .3) {
-  //   gate = setTimeout(gateFunc, 140);
-  // } else if (Math.random() <.3) {
-  //   gate = setTimeout(gateFunc, 150);
-  //   lowPassFilter.frequency.value = 2000;
-  // } else if (Math.random() <.3) {
-  //   gate = setTimeout(gateFunc, 105);
-  //   oscillator2.frequency.value = 123.47 // B3
-  // } else if (Math.random() <.6) {
-  //   gate = setTimeout(gateFunc, 190);
-  //   oscillator2.frequency.value = 130.81; // C3
-  // } else if (Math.random() <.7) {
-  //   oscillator2.frequency.value = 146.83; // D3
-  // } else {  
-  //   gate = setTimeout(gateFunc, 215);
-  //   oscillator1.frequency.value = 110.00; // A3
-  // }
-
-  if ( Math.random() <.3 ) {
+  if (randomized && ( Math.random() < .5) ) {
+    if ( Math.random() < .3 ) {
+      gate = setTimeout(gateFunc, tempo * .933);
+      variance = setTimeout(psyBassFunc, tempo);
+      console.log("new option");
+    } else if (Math.random() <.3) {
+      gate = setTimeout(gateFunc, tempo);
+      lowPassFilter.frequency.value = 2000;
+      console.log("new option");
+      variance = setTimeout(psyBassFunc, tempo);
+    } else if (Math.random() <.3) {
+      gate = setTimeout(gateFunc, tempo * 7);
+      oscillator2.frequency.value = toneDictionary.BoctaveFour;
+      console.log("new option");
+      variance = setTimeout(psyBassFunc, tempo);
+    } else if (Math.random() <.6) {
+      gate = setTimeout(gateFunc, tempo * 1.267);
+      oscillator2.frequency.value = toneDictionary.CoctaveTwo;
+      console.log("new option");
+      variance = setTimeout(psyBassFunc, tempo);
+    } else if (Math.random() <.7) {
+      oscillator2.frequency.value = toneDictionary.DoctaveThree;
+      console.log("new option");
+      variance = setTimeout(psyBassFunc, tempo);
+    } else {  
+      gate = setTimeout(gateFunc, tempo * 1.433);
+      oscillator1.frequency.value = toneDictionary.AoctaveThree;
+      console.log("new option");
+      variance = setTimeout(psyBassFunc, tempo);
+    }
+  } else if ( Math.random() <.3 ) {
     gate = setTimeout(gateFunc, tempo * 1.175);
     lowPassFilter.frequency.value = 2000;
     console.log("B");
