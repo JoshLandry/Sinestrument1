@@ -51,6 +51,11 @@ var lydianModeStart = document.querySelector('.lydianMode');
 var locrianModeStart = document.querySelector('.locrianMode');
 var wholeToneScaleStart = document.querySelector('.wholeToneScale');
 
+// Arp your own chord
+
+var submitNotes = document.querySelector('.submitNotes');
+var playUserArp = document.querySelector('.playUserArp');
+
 // BUTTON CLICK FUNCTIONS
 
 // mute button
@@ -250,3 +255,22 @@ wholeToneScaleStart.onclick = function() {
   wholeToneScale();
 }
 
+// arpeggiate user's chord
+
+var userNoteA;
+var userNoteB;
+var userNoteC;
+var userNoteD;
+
+submitNotes.onclick = function() {
+  userNoteA = document.querySelector('.userNoteA').value
+  userNoteB = document.querySelector('.userNoteB').value
+  userNoteC = document.querySelector('.userNoteC').value
+  userNoteD = document.querySelector('.userNoteD').value
+
+  console.log(userNoteA + ", " + userNoteB + ", " + userNoteC + ", " + userNoteD)
+}
+
+playUserArp.onclick = function() {
+  userArp();
+}
