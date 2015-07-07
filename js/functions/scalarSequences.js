@@ -3,9 +3,18 @@ var cMajorScale = function() {
   lowPassFilter.frequency.value = 3700 - (Math.random() * 1000);
 
   console.log(stepInSequence);
+  counter += 1;
 
   if(stepInSequence > 7) {
     stepInSequence = 0;
+  }
+
+  if( Math.random() < .5 ) {
+    waveform = setTimeout(randomWaveFunc, tempo);
+  } else if ( Math.random() < .5 ) {
+    waveform = setTimeout(randomWaveFunc, tempo * 2);
+  } else {
+    waveform = setTimeout(randomWaveFunc, tempo / 2);
   }
 
   if(!randomized) {
@@ -79,7 +88,7 @@ var cMajorScale = function() {
       } else if (Math.random() < .3) {
         stepInSequence += 1;
       } else {
-        stepInSequence -= 1;
+        stepInSequence -= 2;
       }
       variance = setTimeout(cMajorScale, tempo);
     } else if (stepInSequence === 3) {
@@ -87,26 +96,28 @@ var cMajorScale = function() {
       oscillator2.frequency.value = toneDictionary.FoctaveThree
       if(Math.random() < .5) {
         stepInSequence += 2;
-      } else {
+      } else if (Math.random() < .3) {
         stepInSequence -= 1;
+      } else {
+        stepInSequence += 1;
       }
       variance = setTimeout(cMajorScale, tempo);
     } else if (stepInSequence === 4) {
       oscillator1.frequency.value = toneDictionary.GoctaveTwo
       oscillator2.frequency.value = toneDictionary.GoctaveThree
       if(Math.random() < .5) {
-        stepInSequence += 2;
-      } else {
         stepInSequence += 1;
+      } else {
+        stepInSequence -= 3;
       }
       variance = setTimeout(cMajorScale, tempo);
     } else if (stepInSequence === 5) {
       oscillator1.frequency.value = toneDictionary.AoctaveTwo
       oscillator2.frequency.value = toneDictionary.AoctaveThree
       if(Math.random() < .5) {
-        stepInSequence += 2;
-      } else {
         stepInSequence += 1;
+      } else {
+        stepInSequence += 2;
       }
       variance = setTimeout(cMajorScale, tempo);
     } else if (stepInSequence === 6) {
@@ -127,6 +138,23 @@ var cMajorScale = function() {
         stepInSequence += 1;
       }
       variance = setTimeout(cMajorScale, tempo);
+    }
+  }
+
+  if(patternLength === 2) {
+    if (counter === 7) {
+      counter = 0;
+      stepInSequence = 0;
+    } 
+  } else if (patternLength === 1) {
+    if (counter === 3) {
+      counter = 0;
+      stepInSequence = 0;
+    }
+  } else if (patternLength === 4) {
+    if (counter === 15) {
+      counter = 0;
+      stepInSequence = 0;
     }
   }
 }

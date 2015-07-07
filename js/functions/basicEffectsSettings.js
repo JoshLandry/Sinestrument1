@@ -1,5 +1,9 @@
 var mouseTrack = true;
 
+var patternLength = 2;
+
+var counter = 0;
+
 var pitchTrack = true;
 
 var randomized = false;
