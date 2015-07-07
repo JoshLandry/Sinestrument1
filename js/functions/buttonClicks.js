@@ -1,5 +1,28 @@
 // BUTTON VARIABLES
 
+// settings buttons
+
+var mute = document.querySelector('.mute');
+
+var randomizeSequence = document.querySelector('.randomizeSequence');
+var mouseTrackButton = document.querySelector('.mouseTrackButton');
+var pitchTrackButton = document.querySelector('.pitchTrackButton');
+var gridlockedButton = document.querySelector('.gridlockedButton');
+
+// tempo buttons
+
+var tempo300 = document.querySelector('.threehundred');
+var tempo200 = document.querySelector('.twohundred');
+var tempoSubmit = document.querySelector('.tempoSubmit');
+
+var tempoSlide = document.querySelector('.tempoSlide');
+var tempoSlide2 = document.querySelector('.tempoSlideUp');
+
+// effects buttons
+
+var filterSweep = document.querySelector('.filterSweep');
+var randomizeWaveform = document.querySelector('.randomizeWaveform');
+
 // pitch buttons
 
 var pitchIncrement = 80;
@@ -15,22 +38,6 @@ var rapidVariance = document.querySelector('.rapidVariance');
 var randomVariance = document.querySelector('.randomVariance');
 var minuteVariance = document.querySelector('.minuteVariance');
 
-// tempo buttons
-
-var tempo300 = document.querySelector('.threehundred');
-var tempo200 = document.querySelector('.twohundred');
-var tempo150 = document.querySelector('.onefifty');
-var tempoSubmit = document.querySelector('.tempoSubmit');
-
-var tempoSlide = document.querySelector('.tempoSlide');
-var tempoSlide2 = document.querySelector('.tempoSlideUp');
-
-// settings buttons
-
-var mouseTrackButton = document.querySelector('.mouseTrackButton');
-var pitchTrackButton = document.querySelector('.pitchTrackButton');
-var gridlockedButton = document.querySelector('.gridlockedButton');
-
 // sequence buttons
 
 var tonalVarianceBass = document.querySelector('.tonalVarianceBass');
@@ -39,14 +46,11 @@ var psyBass = document.querySelector('.psyBass');
 var acidSequence = document.querySelector('.acidSequence');
 var acidSequential = document.querySelector('.acidSequential');
 
-var filterSweep = document.querySelector('.filterSweep');
-var randomizeWaveform = document.querySelector('.randomizeWaveform');
+var cMajorScaleStart = document.querySelector('.cMajorScale');
 
 // BUTTON CLICK FUNCTIONS
 
 // mute button
-
-var mute = document.querySelector('.mute');
 
 mute.onclick = function() {
   if(mute.getAttribute('data-muted') === 'false') {
@@ -121,6 +125,20 @@ gridlockedButton.onclick = function() {
   }
 }
 
+// Randomize Seq
+
+randomizeSequence.onclick = function() {
+  if(randomizeSequence.getAttribute('data-random') === 'false') {
+    randomizeSequence.setAttribute('data-random', 'true');
+    randomized = true;
+    randomizeSequence.innerHTML = "Derandomize Sequence";
+  } else {
+    randomized = false;
+    randomizeSequence.setAttribute('data-random', 'false');
+    randomizeSequence.innerHTML = "Randomize Sequence";
+  };
+}
+
 // pitch twisters
 
 var pitchSlide;
@@ -172,21 +190,6 @@ tonalVarianceBass.onclick = function() {
   variance = setInterval(tonalVarianceFunc3, 300);
 }
 
-// sequences
-
-psyBass.onclick = function () {
-  variance = setInterval(psyBassFunc, tempo); // 150
-}
-
-acidSequence.onclick = function () {
-  variance = setInterval(acidseq2, tempo); // 200
-  console.log(tempo);
-}
-
-acidSequential.onclick = function() {
-  acidSequentialFunc();
-}
-
 // filter sweeps
 
 filterSweep.onclick = function() {
@@ -208,3 +211,25 @@ tempoSlide.onclick = function() {
 tempoSlide2.onclick = function() {
   variance = setInterval(tempoSlideDown, 100);
 }
+
+// sequences
+
+psyBass.onclick = function () {
+  variance = setInterval(psyBassFunc, tempo); // 150
+}
+
+acidSequence.onclick = function () {
+  variance = setInterval(acidseq2, tempo); // 200
+  console.log(tempo);
+}
+
+acidSequential.onclick = function() {
+  acidSequentialFunc();
+}
+
+// scale sequences
+
+cMajorScaleStart.onclick = function() {
+  cMajorScale();
+}
+

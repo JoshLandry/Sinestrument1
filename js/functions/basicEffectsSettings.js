@@ -2,6 +2,8 @@ var mouseTrack = true;
 
 var pitchTrack = true;
 
+var randomized = false;
+
 var gridlocked = true;
 
 var stepInSequence = 0;
