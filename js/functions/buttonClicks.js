@@ -48,6 +48,7 @@ var acidSequential = document.querySelector('.acidSequential');
 
 var cMajorScaleStart = document.querySelector('.cMajorScale');
 var lydianModeStart = document.querySelector('.lydianMode');
+var locrianModeStart = document.querySelector('.locrianMode');
 
 // BUTTON CLICK FUNCTIONS
 
@@ -238,5 +239,9 @@ cMajorScaleStart.onclick = function() {
 
 lydianModeStart.onclick = function() {
   lydianMode();
+}
+
+locrianModeStart.onclick = function() {
+  locrianMode();
 }
 

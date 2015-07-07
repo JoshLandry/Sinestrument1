@@ -1,5 +1,8 @@
 var mouseTrack = true;
 
+var waveform;
+var waveform2;
+
 var patternLength = 2;
 
 var counter = 0;
