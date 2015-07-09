@@ -79,6 +79,11 @@ function setDutyCycle(amt) {
   this.dcGain.gain.value = 1.7*(0.5-amt);
 }
 
+function dutycyclechange() {
+  pwmOsc.setDutyCycle(1-parseFloat(document.getElementById("dutycycle").value));
+}
+
+
 function start(time) {
   this.osc1.start(time);
   this.osc2.start(time);
