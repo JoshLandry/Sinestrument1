@@ -18,3 +18,8 @@ h6, p {
   text-align: center;
 }
 
+button {
+  padding: .2em;
+  border: none;
+  outline: none;
+}
