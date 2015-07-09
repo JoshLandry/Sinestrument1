@@ -61,7 +61,14 @@
         <input class="userNoteC"></input> <br>
         <input class="userNoteD"></input> <br>
         <input class="userNoteE"></input> <br>
-        <button class="submitNotes">Submit Your Notes</button>
+        <button class="submitNotes">Submit Your Notes</button> <br>
+
+    <h3>PWM Oscillator</h3>
+        <button class="pwmStart">Start PWM Oscillator</button> <br>
+        <button class="pwmStop">Stop PWM Oscillator</button>
+        <p>Duty cycle control: 
+            <input id="dutycycle" type="range" value="0.5" min="0.0" max="1.0" step="0.01" onchange="dutycyclechange()" oninput="dutycyclechange()">
+        </p>
 
     <script src="./js/toneDictionary.js"></script>
     <script src="./js/audioApp.js"></script>

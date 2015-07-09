@@ -67,28 +67,17 @@ gainNode.gain.value = initialVol;
 
 // Pulsewave Modulating oscillator made using delay
 
-function createDCOffset() {
-  var buffer=audioContext.createBuffer(1,1,audioContext.sampleRate);
-  var data = buffer.getChannelData(0);
-  for (var i=0; i<1; i++)
-    data[i]=1;
-  var bufferSource=audioContext.createBufferSource();
-  bufferSource.buffer=buffer;
-  bufferSource.loop=true;
-  return bufferSource;
-}
-
-function setDutyCycle(amt) {
-  this.delay.delayTime.value = amt/this.frequency;  
-  this.dcGain.gain.value = 1.7*(0.5-amt);
-}
-
 // he first writes a function which will create two new oscillators,
 // and attaches one to a delay, to create PWM.  He creates a blank object
 // for the PWM oscillator, and attaches the oscillators as properties,
 // as well as the below start, stop and DCoffset functions.  I am unsure of 
 // the significance of the DC offset, but I've left it in to make sure it will
 // still work.
+
+function setDutyCycle(amt) {
+  this.delay.delayTime.value = amt/this.frequency;  
+  this.dcGain.gain.value = 1.7*(0.5-amt);
+}
 
 function start(time) {
   this.osc1.start(time);
@@ -102,23 +91,23 @@ function stop(time) {
 }
 
 function createDCOffset() {
-  var buffer=audioContext.createBuffer(1,1,audioContext.sampleRate);
+  var buffer = audioCtx.createBuffer(1,1,audioCtx.sampleRate);
   var data = buffer.getChannelData(0);
   for (var i=0; i<1; i++)
     data[i]=1;
-  var bufferSource=audioContext.createBufferSource();
-  bufferSource.buffer=buffer;
-  bufferSource.loop=true;
+  var bufferSource = audioCtx.createBufferSource();
+  bufferSource.buffer = buffer;
+  bufferSource.loop = true;
   return bufferSource;
 }
 
 function createPWMOsc(freq, dutyCycle) {
   var pwm = new Object();
-  var osc1 = audioContext.createOscillator();
-  var osc2 = audioContext.createOscillator();
-  var inverter = audioContext.createGain();
-  var output = audioContext.createGain();
-  var delay = audioContext.createDelay();
+  var osc1 = audioCtx.createOscillator();
+  var osc2 = audioCtx.createOscillator();
+  var inverter = audioCtx.createGain();
+  var output = audioCtx.createGain();
+  var delay = audioCtx.createDelay();
   inverter.gain.value=-1;
   osc1.type="sawtooth";
   osc2.type="sawtooth";
@@ -129,9 +118,11 @@ function createPWMOsc(freq, dutyCycle) {
   inverter.connect(delay);
   delay.connect(output);
   var dcOffset = createDCOffset();
-  var dcGain = audioContext.createGain();
+  var dcGain = audioCtx.createGain();
   dcOffset.connect(dcGain);
   dcGain.connect(output);
+
+  output.gain.value = 0.2;
 
   pwm.osc1=osc1;
   pwm.osc2=osc2;
@@ -147,3 +138,7 @@ function createPWMOsc(freq, dutyCycle) {
   pwm.setDutyCycle(dutyCycle);
   return pwm;
 }
+
+var pwmOsc = createPWMOsc(440,.5);
+
+pwmOsc.output.connect(audioCtx.destination);

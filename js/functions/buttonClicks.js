@@ -56,6 +56,11 @@ var wholeToneScaleStart = document.querySelector('.wholeToneScale');
 var submitNotes = document.querySelector('.submitNotes');
 var playUserArp = document.querySelector('.playUserArp');
 
+// PWM
+
+var pwmStart = document.querySelector('.pwmStart');
+var pwmStop = document.querySelector('.pwmStop');
+
 // BUTTON CLICK FUNCTIONS
 
 // mute button
@@ -275,4 +280,14 @@ submitNotes.onclick = function() {
 
 playUserArp.onclick = function() {
   userArp();
+}
+
+// PWM Osc
+
+pwmStart.onclick = function() {
+  pwmOsc.start(0);
+}
+
+pwmStop.onclick = function() {
+  pwmOsc.stop(0);
 }
