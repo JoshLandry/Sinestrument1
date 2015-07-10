@@ -85,14 +85,12 @@ function dutycyclechange() {
 
 
 function start(time) {
-  this.osc1.start(time);
-  this.osc2.start(time);
-  this.dcOffset.start(time);
+  pwmOsc.output.connect(analyser);
+  pwmOsc.output.connect(audioCtx.destination);
 }
 function stop(time) {
-  this.osc1.stop(time);
-  this.osc2.stop(time);
-  this.dcOffset.stop(time);
+  pwmOsc.output.disconnect(analyser);
+  pwmOsc.output.disconnect(audioCtx.destination);
 }
 
 function createDCOffset() {
@@ -127,6 +125,10 @@ function createPWMOsc(freq, dutyCycle) {
   dcOffset.connect(dcGain);
   dcGain.connect(output);
 
+  osc1.start(0);
+  osc2.start(0);
+  dcOffset.start(0);
+
   output.gain.value = 0.2;
 
   pwm.osc1=osc1;
@@ -145,9 +147,6 @@ function createPWMOsc(freq, dutyCycle) {
 }
 
 var pwmOsc = createPWMOsc(440,.5);
-
-pwmOsc.output.connect(audioCtx.destination);
-pwmOsc.output.connect(analyser);
 
 //
 
@@ -249,7 +248,7 @@ Oscilloscope.prototype.draw = function (context) {
 
   context.restore();
   context.beginPath();
-  context.strokeStyle = "red";
+  context.strokeStyle = "purple";
   context.moveTo(0,quarterHeight*2);
   context.lineTo(this.width,quarterHeight*2);
   context.stroke();
