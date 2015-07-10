@@ -66,6 +66,12 @@ oscillator2.onended = function() {
 
 gainNode.gain.value = initialVol;
 
+// Volume Slider
+
+function volumechange() {
+  gainNode.gain.value = document.querySelector(".volume").value;
+  console.log(gainNode.gain.value);
+}
 
 // Pulsewave Modulating oscillator made using delay
 
