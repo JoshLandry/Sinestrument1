@@ -4,18 +4,21 @@ body {
   background-size: cover;
 }
 
-h1 {
+h1, h6 {
   color: rgb(94,215,133);
   text-align: center;
 }
 
-h3 {
+p {
+  color: rgb(94,215,133);
+}
+
+.blue {
   color: rgb(0,181,236);
 }
 
-h6, p {
+h3 {
   color: rgb(0,181,236);
-  text-align: center;
 }
 
 button {
