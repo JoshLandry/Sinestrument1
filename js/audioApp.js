@@ -174,6 +174,8 @@ function draw() {
   rafID = requestAnimationFrame( draw );
 }
 
+var oscilloscopeDiv = document.querySelector("div");
+
 function setupCanvases( container ) {
   scopeCanvas = document.createElement( 'canvas' );
   scopeCanvas.width = 512; 
@@ -181,10 +183,7 @@ function setupCanvases( container ) {
   scopeCanvas.id = "scope";
   scopeCanvas.myContext = scopeCanvas.getContext( '2d' );
 
-  if (container)
-    container.appendChild( scopeCanvas );
-  else
-    document.body.appendChild( scopeCanvas );
+  oscilloscopeDiv.insertBefore( scopeCanvas, oscilloscopeDiv.firstChild );
 
   // freqCanvas = document.createElement( 'canvas' );
   // freqCanvas.width = 1024; 
