@@ -67,11 +67,11 @@ var pwmStop = document.querySelector('.pwmStop');
 
 mute.onclick = function() {
   if(mute.getAttribute('data-muted') === 'false') {
-    gainNode.disconnect(audioCtx.destination);
+    lowPassFilter.disconnect(oscilloAnalyser);
     mute.setAttribute('data-muted', 'true');
     mute.innerHTML = "Unmute";
   } else {
-    gainNode.connect(audioCtx.destination);
+    lowPassFilter.connect(oscilloAnalyser);
     mute.setAttribute('data-muted', 'false');
     mute.innerHTML = "Mute";
   };
