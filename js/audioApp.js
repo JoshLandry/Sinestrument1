@@ -83,14 +83,12 @@ function dutycyclechange() {
   pwmOsc.setDutyCycle(1-parseFloat(document.getElementById("dutycycle").value));
 }
 
-
-function start(time) {
+function start() {
   pwmOsc.output.connect(analyser);
-  pwmOsc.output.connect(audioCtx.destination);
 }
-function stop(time) {
+function stop() {
   pwmOsc.output.disconnect(analyser);
-  pwmOsc.output.disconnect(audioCtx.destination);
+  // pwmOsc.output.disconnect(audioCtx.destination);
 }
 
 function createDCOffset() {

@@ -20,6 +20,9 @@ function updatePage(e) {
       if(pitchTrack) {
         oscillator1.frequency.value = ( (CurX/WIDTH) * maxFreq / 4);
         oscillator2.frequency.value = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
+
+        pwmOsc.osc1.frequency.value = ( (CurX/WIDTH) * maxFreq / 4);
+        pwmOsc.osc2.frequency.value = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
       }
       randomizer1 = ( (CurX/WIDTH) * maxFreq / 4);
       randomizer2 = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
