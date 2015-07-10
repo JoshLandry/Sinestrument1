@@ -224,7 +224,7 @@ Oscilloscope.prototype.draw = function (context) {
   var scaling = this.height/256;
 
   this.analyser.getByteTimeDomainData(data);
-  context.strokeStyle = "red";
+  context.strokeStyle = "purple";
   context.lineWidth = 1;
   context.fillStyle="#004737";
   context.fillRect(0,0,this.width, this.height);
@@ -249,12 +249,12 @@ Oscilloscope.prototype.draw = function (context) {
 
   context.restore();
   context.beginPath();
-  context.strokeStyle = "blue";
+  context.strokeStyle = "red";
   context.moveTo(0,quarterHeight*2);
   context.lineTo(this.width,quarterHeight*2);
   context.stroke();
 
-  context.strokeStyle = "white";
+  context.strokeStyle = "yellow";
 
   context.beginPath();
 

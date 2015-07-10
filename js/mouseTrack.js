@@ -24,6 +24,6 @@ function updatePage(e) {
       randomizer1 = ( (CurX/WIDTH) * maxFreq / 4);
       randomizer2 = ( (CurX/WIDTH) * (-1 * maxFreq) / 4);
 
-      gainNode.gain.value = .7 * maxVol;
+      gainNode.gain.value = maxVol;
     }
 }
