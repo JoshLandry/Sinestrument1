@@ -69,11 +69,11 @@ mute.onclick = function() {
   if(mute.getAttribute('data-muted') === 'false') {
     lowPassFilter.disconnect(oscilloAnalyser);
     mute.setAttribute('data-muted', 'true');
-    mute.innerHTML = "Unmute";
+    mute.innerHTML = "Unmute Osc 1 & 2";
   } else {
     lowPassFilter.connect(oscilloAnalyser);
     mute.setAttribute('data-muted', 'false');
-    mute.innerHTML = "Mute";
+    mute.innerHTML = "Mute Osc 1 & 2";
   };
 }
 

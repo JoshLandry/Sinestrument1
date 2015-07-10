@@ -73,14 +73,11 @@ function volumechange() {
   console.log(gainNode.gain.value);
 }
 
-// Pulsewave Modulating oscillator made using delay
 
-// he first writes a function which will create two new oscillators,
-// and attaches one to a delay, to create PWM.  He creates a blank object
-// for the PWM oscillator, and attaches the oscillators as properties,
-// as well as the below start, stop and DCoffset functions.  I am unsure of 
-// the significance of the DC offset, but I've left it in to make sure it will
-// still work.
+
+// PWN Osc
+
+// Settings
 
 function setDutyCycle(amt) {
   this.delay.delayTime.value = amt/this.frequency;  
@@ -92,6 +89,11 @@ function dutycyclechange() {
   pwmOsc.setDutyCycle(1-parseFloat(document.getElementById("dutycycle").value));
 }
 
+function pwmfilterchange() {
+  pwmLowPassFilter.frequency.value = document.querySelector(".pwmfilter").value;
+  console.log(document.querySelector(".pwmfilter").value);
+}
+
 var pwmAnalyser = audioCtx.createAnalyser();
 var pwmLowPassFilter = audioCtx.createBiquadFilter();
 
@@ -99,13 +101,13 @@ pwmLowPassFilter.type = "lowpass";
 pwmLowPassFilter.frequency.value = 20000;
 
 pwmAnalyser.connect(pwmLowPassFilter);
-pwmLowPassFilter.connect(oscilloAnalyser);
 
 function start() {
   pwmOsc.output.connect(pwmAnalyser);
+  pwmLowPassFilter.connect(oscilloAnalyser);
 }
 function stop() {
-  pwmOsc.output.disconnect(pwmAnalyser);
+  pwmLowPassFilter.disconnect(oscilloAnalyser);
   // pwmOsc.output.disconnect(audioCtx.destination);
 }
 
@@ -143,9 +145,7 @@ function createPWMOsc(freq, dutyCycle) {
 
   osc1.start(0);
   osc2.start(0);
-  // dcOffset.start(0);
-
-  output.gain.value = 0.2;
+  dcOffset.start(0);
 
   pwm.osc1=osc1;
   pwm.osc2=osc2;

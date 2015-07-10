@@ -18,7 +18,7 @@ var stepInSequence = 0;
 var tempo = 300;
 
 var maxFreq = 6000;
-var maxVol = 0.05;
+var maxVol = 0.2;
 
 // note envelope
 
