@@ -103,10 +103,10 @@ var varianceFunc3 = function() {
     }
   } else if ( Math.random() < .5) {
     oscillator1.frequency.value = oscillator1.frequency.value * 1.3
-    oscillator2.frequency.value = oscillator2.frequency.value / 1.1
+    oscillator2.frequency.value = oscillator2.frequency.value / 2
     lowPassFilter.frequency.value = (Math.random() * 5000);
   } else {
-    oscillator1.frequency.value = oscillator1.frequency.value / (Math.random() * 1.3);
+    oscillator1.frequency.value = oscillator1.frequency.value / (Math.random() * 100);
     oscillator2.frequency.value = oscillator2.frequency.value * (Math.random() * .9);
     lowPassFilter.frequency.value = 1750;
   }
