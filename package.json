@@ -19,7 +19,7 @@
     "url": "https://github.com/JoshLandry/Sinestrument1/issues"
   },
   "homepage": "https://github.com/JoshLandry/Sinestrument1",
-  "devDependencies": {
+  "dependencies": {
     "consolidate": "^0.13.1",
     "express": "^4.13.1",
     "mustache": "^2.1.2"
