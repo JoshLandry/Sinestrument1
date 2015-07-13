@@ -4,6 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#accordion" ).accordion({
+                heightStyle: "content",
+                collapsible: true
+            })
+        });
+    </script>
     <title>Arp & Texture Generator</title>
 </head>
 <body>
@@ -12,80 +22,96 @@
     <div>
         <p>Waveform Display</p>
     </div>
-    <h3>Settings</h3>
-        <h5 class="blue">Set the volume to start the synthesizer.</h5>
-        <p class="blue"> Vol: <input class="volume" type="range" value="0.035" min="0.0" max="0.05" step="0.005" onchange="volumechange()" oninput="volumechange()">
-        </p>
-        <button class="mouseTrackButton">Mouse Tracking</button>
-        <button class="pitchTrackButton">Pitch Tracking</button> <br>
-        <button class="mute" data-muted="false">Mute Osc 1 & 2</button>
-        <button class="pwmStop">Mute Osc 3 & 4</button> <br> <br>
 
-        <button class="pwmStart">Start PWM Oscillator (3 & 4)</button> <br>
-   
-        <p class="blue"> 
-            <input id="dutycycle" type="range" value="0.5" min="0.0" max="1.0" step="0.01" onchange="dutycyclechange()" oninput="dutycyclechange()">
-            PWM Duty Cycle
-        </p>
-
-        <p class="blue">
-            <input class="pwmfilter" type="range" value="5000" min="0" max="15000" step="100" onchange="pwmfilterchange()" oninput="pwmfilterchange()">
-            PWM Filter Cutoff
-        </p>
-
+    <section id="accordion">
         <button class="reset">Reset Synthesizer</button> <br>
+        <h3>Settings</h3>
+            <section>
+                <h5 class="blue">Set the volume to start the synthesizer.
+                <p class="blue"> Vol: <input class="volume" type="range" value="0.035" min="0.0" max="0.05" step="0.005" onchange="volumechange()" oninput="volumechange()">
+                </p>
+                <button class="mouseTrackButton">Mouse Tracking</button>
+                <button class="pitchTrackButton">Pitch Tracking</button> <br>
+                <button class="mute" data-muted="false">Mute Osc 1 & 2</button>
+                <button class="pwmStop">Mute Osc 3 & 4</button> <br> <br>
+
+                <button class="pwmStart">Start PWM Oscillator (3 & 4)</button> <br>
+           
+                <p class="blue"> 
+                    <input id="dutycycle" type="range" value="0.5" min="0.0" max="1.0" step="0.01" onchange="dutycyclechange()" oninput="dutycyclechange()">
+                    PWM Duty Cycle
+                </p>
+
+                <p class="blue">
+                    <input class="pwmfilter" type="range" value="5000" min="0" max="15000" step="100" onchange="pwmfilterchange()" oninput="pwmfilterchange()">
+                    PWM Filter Cutoff
+                </p>
+            </section>
+
+        <h3>Tempo</h3>
+            <section>
+                <input class="userTempo"></input>
+                <button class="tempoSubmit">Set Tempo</button><br>
+
+                <button class="threehundred">100 BPM</button>
+                <button class="twohundred">150 BPM</button> <br>
+                <button class="tempoSlide">Slow gradually to a crawl</button> 
+                <button class="tempoSlideUp">Accelerate to obliteration</button> <br>
+            </section>
         
+        <h3>Basic Effects</h3>
+            <section>
+                <button class="filterSweep">Filtered Tone</button>
+                <button class="randomizeWaveform">Randomize Waveform</button> <br>
+            </section>
 
-    <h3>Tempo</h3>
-        
-        <input class="userTempo"></input>
-        <button class="tempoSubmit">Set Tempo</button><br>
+        <h3>Sequence Effects</h3>
+            <section>
+                <button class="gridlockedButton" data-locked="true">Unlock Grid</button> 
+                <button class="randomizeSequence" data-random="false">Randomize Sequence</button> <br>
+            </section>
 
-        <button class="threehundred">100 BPM</button>
-        <button class="twohundred">150 BPM</button> <br>
-        <button class="tempoSlide">Slow gradually to a crawl</button> 
-        <button class="tempoSlideUp">Accelerate to obliteration</button> <br>
+        <h3>Mangle Your Sound</h3>
+            <section>
+                <button class="lowerPitch">Spiral Down</button>
+                <button class="raisePitch">Spiral Up</button>
+                <button class="twistUpPitch">Twist Left</button>
+                <button class="twistDownPitch">Twist Right</button> <br>
+                <button class="twoHundredMsVariance">200ms Variance</button>
+                <button class="rapidVariance">Rapid Variance</button>
+                <button class="randomVariance">Random Variance</button>
+                <button class="minuteVariance">Sputter Out</button> <br>
+            </section>
 
-    <h3>Basic Effects</h3>
-        <button class="filterSweep">Filtered Tone</button>
-        <button class="randomizeWaveform">Randomize Waveform</button> <br>
+        <h3>Play an Existing Sequence</h3>
+            <section>
+                <p>Fixed Sequences (the notes are fixed, but you set the tempo)</p>
+                    <button class="tonalVarianceBass">Bedroom IDM</button>
+                    <button class="acidSequential">Sequential Arp</button> <br>
 
-    <h3>Sequence Effects</h3>
-        <button class="gridlockedButton" data-locked="true">Unlock Grid</button> 
-        <button class="randomizeSequence" data-random="false">Randomize Sequence</button> <br>
+                <p>Mouse Controlled Sequences (the notes change when you move the mouse)</p>
+                    <button class="psyBass">Acid Bass Arp</button>
+                    <button class="acidSequence">Acid Bass Arp 2</button> <br>
 
-    <h3>Mangle Your Sound</h3>
-        <button class="lowerPitch">Spiral Down</button>
-        <button class="raisePitch">Spiral Up</button>
-        <button class="twistUpPitch">Twist Left</button>
-        <button class="twistDownPitch">Twist Right</button> <br>
-        <button class="twoHundredMsVariance">200ms Variance</button>
-        <button class="rapidVariance">Rapid Variance</button>
-        <button class="randomVariance">Random Variance</button>
-        <button class="minuteVariance">Sputter Out</button> <br>
+                <p>Scalar Sequences</p>
+                    <button class="cMajorScale">C Major</button> <br>
+                    <button class="lydianMode">Lydian Mode</button>
+                    <button class="locrianMode">Locrian Mode</button> <br>
+                    <button class="wholeToneScale">Whole Tone Scale</button> <br>
+            </section>
 
-    <h3>Fixed Sequences (the notes are fixed, but you set the tempo)</h3>
-        <button class="tonalVarianceBass">Bedroom IDM</button>
-        <button class="acidSequential">Sequential Arp</button> <br>
+        <h3>Arp your own chord</h3>
+            <section>
+                <button class="playUserArp">Play Your Arp</button> <br>
+                <input class="userNoteA"></input> <br>
+                <input class="userNoteB"></input> <br>
+                <input class="userNoteC"></input> <br>
+                <input class="userNoteD"></input> <br>
+                <input class="userNoteE"></input> <br>
+                <button class="submitNotes">Submit Your Notes</button> <br>
+            </section>
 
-    <h3>Mouse Controlled Sequences (the notes change when you move the mouse)</h3>
-        <button class="psyBass">Acid Bass Arp</button>
-        <button class="acidSequence">Acid Bass Arp 2</button> <br>
-
-    <h3>Scale Sequences</h3>
-        <button class="cMajorScale">C Major</button> <br>
-        <button class="lydianMode">Lydian Mode</button>
-        <button class="locrianMode">Locrian Mode</button> <br>
-        <button class="wholeToneScale">Whole Tone Scale</button> <br>
-
-    <h3>Arp your own chord</h3>
-        <button class="playUserArp">Play Your Arp</button> <br>
-        <input class="userNoteA"></input> <br>
-        <input class="userNoteB"></input> <br>
-        <input class="userNoteC"></input> <br>
-        <input class="userNoteD"></input> <br>
-        <input class="userNoteE"></input> <br>
-        <button class="submitNotes">Submit Your Notes</button> <br>
+    </section>
 
     <script src="js/toneDictionary.js"></script>
     <script src="js/components/oscilloscope.js"></script>
