@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/stylesheet.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script>
         $(function() {
             $( "#accordion" ).accordion({
@@ -23,13 +23,14 @@
         <p>Waveform Display</p>
     </div>
 
+    <button class="reset">Reset Synthesizer</button> <br>
+    <h5 class="blue">Set the volume to start the synthesizer.
+    <p class="blue"> Vol: <input class="volume" type="range" value="0.035" min="0.0" max="0.05" step="0.005" onchange="volumechange()" oninput="volumechange()"></p>
+
     <section id="accordion">
-        <button class="reset">Reset Synthesizer</button> <br>
+
         <h3>Settings</h3>
             <section>
-                <h5 class="blue">Set the volume to start the synthesizer.
-                <p class="blue"> Vol: <input class="volume" type="range" value="0.035" min="0.0" max="0.05" step="0.005" onchange="volumechange()" oninput="volumechange()">
-                </p>
                 <button class="mouseTrackButton">Mouse Tracking</button>
                 <button class="pitchTrackButton">Pitch Tracking</button> <br>
                 <button class="mute" data-muted="false">Mute Osc 1 & 2</button>
