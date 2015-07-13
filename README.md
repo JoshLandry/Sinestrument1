@@ -7,10 +7,25 @@ This is the easiest place to have some fun messing around with the app.
 
 Using the app -
 
-  Once you have the main page of the app loaded in your browser, move the volume slider with your mouse in order to activate the synthesizer, and hear a tone.  The initial settings are that Oscillators 1 & 2 are active, and their pitch follows the mouse position.  Therefore, if you move the mouse around, the tone you hear should change.
+  Once you have the main page of the app loaded in your browser, move the volume slider with your mouse in order to activate the synthesizer, and hear a tone.  
+
+Settings -
+
+  The initial settings are that Oscillators 1 & 2 are active, and their pitch follows the mouse position.  Therefore, if you move the mouse around, the tone you hear should change.
 
   Disabling "Mouse Tracking" or "Pitch Tracking" in the settings section, you can stop the pitch from following the mouse
   position.
+
+The PWN Oscillator - 
+
+  Oscillators 3 & 4, disabled by default, together form the Pulsewave Modulating Oscillator, or PWM Oscillator.  You can start it by clicking 'Start PNW Oscillator'.  The sliders for "PWM Duty Cycle" and "PWM Filter Cutoff" will shape the texture of the resulting tone.
+
+  This oscillator pair is a recent addition, so it's currently uneffected by most of the effects and sequence buttons.  It has a tendency to sound hideously out of tune with the primary oscillators 1 & 2.  This will be changed in future versions.
+
+Tempo - 
+
+  Tempo (in BPM) can be set by the user from the corresponding section.  Two preset buttons, for 100BPM and 150BPM, are available as examples.  Note that the tempo will not come into play unless the user triggers a musical sequence by clicking
+  a button in the lower half of the screen.
 
 
 Basic Effects -
@@ -21,8 +36,7 @@ Basic Effects -
 
   "Randomize Waveform" causes a rhythmic cycling through all possible waveform types (sine, saw, square, etc.) at the current tempo, for a pleasant textural effect.
 
-  Tempo (in BPM) can be set by the user from the corresponding section.  Two preset buttons, for 100BPM and 150BPM, are available as examples.  Note that the tempo will not come into play unless the user triggers a musical sequence by clicking
-  a button in the lower half of the screen.
+
 
 Mangle Your Sound -
 
