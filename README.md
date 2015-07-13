@@ -32,11 +32,9 @@ Basic Effects -
 
   Effects and settings are near the top of the page, while the lower half of the page is reserved for buttons that trigger actual musical sequences.
 
-  Nearly every button present in the user interface will change the sound somehow.  The buttons range from subtle effects, such as the "Filtered tone" button, to drastic and chaotic transformations.
+  The buttons range from subtle effects, such as the "Filtered tone" button, to drastic and chaotic transformations.
 
   "Randomize Waveform" causes a rhythmic cycling through all possible waveform types (sine, saw, square, etc.) at the current tempo, for a pleasant textural effect.
-
-
 
 Mangle Your Sound -
 
@@ -46,11 +44,11 @@ Playing sequences -
 
   There are several categories of sequences.  They are:
     
-    Fixed Sequences - These are sequences of notes that I created myself.  You can set the tempo yourself, but the notes can't be changed.
+  Fixed Sequences - These are sequences of notes that I created myself.  You can set the tempo yourself, but the notes can't be changed.
 
-    Mouse Controlled Sequences - These sequences will respond to mouse position as long as you have "Mouse Tracking" enabled.  Moving the cursor from one side of the screen to the other will result in note and chord changes.
+  Mouse Controlled Sequences - These sequences will respond to mouse position as long as you have "Mouse Tracking" enabled.  Moving the cursor from one side of the screen to the other will result in note and chord changes.
 
-    Scale Sequences - These sequences are based on scales from music theory.  I've included C Major, as well as a couple examples of modes, and the Whole Tone Scale, commonly used in cartoons for dream sequences.
+  Scale Sequences - These sequences are based on scales from music theory.  I've included C Major, as well as a couple examples of modes, and the Whole Tone Scale, commonly used in cartoons for dream sequences.
 
 Sequence Effects -
 
@@ -66,7 +64,7 @@ Arp your own chord -
 
   Right now, it only works if you write the note names in the same way as I did in the code, which is as follows -
 
-    C#4 is CsharpOctaveFour
-    D3 is DoctaveThree
+  C#4 would be 'CsharpOctaveFour'
+  D3 is 'DoctaveThree'
 
   Needless to say, I'm working on getting it to a more flexible state.
