@@ -60,11 +60,4 @@ Arp your own chord -
 
   A work in progress, this section allows you to set the notes that will be played in a randomized sequence, which you can trigger by hitting the 'Play Your Arp' button.
 
-  First, specify 5 notes in the given inputs, and click 'Submit Your Notes'.
-
-  Right now, it only works if you write the note names in the same way as I did in the code, which is as follows -
-
-  C#4 would be 'CsharpOctaveFour'
-  D3 is 'DoctaveThree'
-
-  Needless to say, I'm working on getting it to a more flexible state.
+  First, specify 5 notes in the given inputs, and click 'Submit Your Notes'.  The notes can be written as simply "A", "B" , "C", etc, and you don't need to use quotes for them to work.  If you want to use a semitone, you can write "A sharp".  Typing "A sharp" and "B flat" would result in the same note.  You don't need to worry about which octave is being used: the program will randomly choose that for you.  If the computer gets a note value it doesn't understand, it will just use "C".
