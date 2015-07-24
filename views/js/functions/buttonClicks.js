@@ -86,6 +86,10 @@ stopSequenceButton.onclick = function() {
 
 var stopAll = function() {
   bedroomIDMPlaying = false;
+  easternLoopPlaying = false;
+
+  acidBassArp1Playing = false;
+  acidBassArp2Playing = false;
 }
 
 // reset button
@@ -253,8 +257,9 @@ tonalVarianceBass.onclick = function() {
     stopAll();
   }
 
-  filterSweepingVariance = setInterval(filterSweepFunc, 1);
   bedroomIDMPlaying = true;
+
+  filterSweepingVariance = setInterval(filterSweepFunc, 1);
   tonalVarianceFunc3();
 }
 
@@ -263,6 +268,8 @@ acidSequential.onclick = function() {
   if(!chaoticStacking) {
     stopAll();
   }
+
+  easternLoopPlaying = true;
 
   acidSequentialFunc();
 }
@@ -275,6 +282,8 @@ psyBass.onclick = function () {
     stopAll();
   }
 
+  acidBassArp1Playing = true;
+
   psyBassFunc();
 }
 
@@ -283,6 +292,8 @@ acidSequence.onclick = function () {
   if(!chaoticStacking) {
     stopAll();
   }
+
+  acidBassArp2Playing = true;
 
   acidseq2();
 }

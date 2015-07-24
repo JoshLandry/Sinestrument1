@@ -25,6 +25,15 @@ var maxVol = 0.2;
 // Sequences Playing
 
 var bedroomIDMPlaying = false;
+var easternLoopPlaying = false;
+
+var acidBassArp1Playing = false;
+var acidBassArp2Playing = false;
+
+var cMajorPlaying = false;
+var lydianPlaying = false;
+var locrianPlaying = false;
+var wholeTonePlaying = false;
 
 // note envelope
 
