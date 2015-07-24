@@ -22,6 +22,10 @@ var tempo = 300;
 var maxFreq = 6000;
 var maxVol = 0.2;
 
+// Sequences Playing
+
+var bedroomIDMPlaying = false;
+
 // note envelope
 
 var gate;
@@ -70,4 +74,11 @@ var randomWaveFunc = function() {
   } else {
     oscillator2.type = "square";
   }
+}
+
+// stop current sequence
+
+var stopSeq = function() {
+  variance = null;
+  waveform = null;
 }

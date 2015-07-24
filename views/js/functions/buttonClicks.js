@@ -4,10 +4,13 @@
 
 var mute = document.querySelector('.mute');
 
+var stopSequenceButton = document.querySelector('.stopSequences');
+
 var randomizeSequence = document.querySelector('.randomizeSequence');
 var mouseTrackButton = document.querySelector('.mouseTrackButton');
 var pitchTrackButton = document.querySelector('.pitchTrackButton');
 var gridlockedButton = document.querySelector('.gridlockedButton');
+var chaoticStackingButton = document.querySelector('.chaoticStacking');
 
 // tempo buttons
 
@@ -77,6 +80,14 @@ mute.onclick = function() {
   };
 }
 
+stopSequenceButton.onclick = function() {
+  stopAll();
+}
+
+var stopAll = function() {
+  bedroomIDMPlaying = false;
+}
+
 // reset button
 
 var reset = document.querySelector('.reset');
@@ -135,6 +146,20 @@ gridlockedButton.onclick = function() {
     gridlocked = true;
     gridlockedButton.setAttribute('data-locked', 'true');
     gridlockedButton.innerHTML = "Unlock Grid";
+  }
+}
+
+// Chaotic Stacking
+
+chaoticStackingButton.onclick = function() {
+  if(chaoticStacking) {
+    chaoticStacking = false;
+    chaoticStackingButton.setAttribute('data-stacking', 'false');
+    chaoticStackingButton.innerHTML = "Turn On Chaotic Stacking";
+  } else {
+    chaoticStacking = true;
+    chaoticStackingButton.setAttribute('data-stacking', 'true');
+    chaoticStackingButton.innerHTML = "Turn Off Chaotic Stacking";
   }
 }
 
@@ -216,29 +241,49 @@ tempoSlide2.onclick = function() {
   variance = setInterval(tempoSlideDown, 100);
 }
 
-// sequences
+// SEQUENCES
 
 // fixed sequences
 
 var filterSweepingVariance;
 
 tonalVarianceBass.onclick = function() {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
   filterSweepingVariance = setInterval(filterSweepFunc, 1);
+  bedroomIDMPlaying = true;
   tonalVarianceFunc3();
-  // variance = setInterval(tonalVarianceFunc3, 300);
 }
 
 acidSequential.onclick = function() {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
   acidSequentialFunc();
 }
 
 //
 
 psyBass.onclick = function () {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
   psyBassFunc();
 }
 
 acidSequence.onclick = function () {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
   acidseq2();
 }
 
