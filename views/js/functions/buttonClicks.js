@@ -384,6 +384,8 @@ var noteParser = function(note) {
     parsedNote = "GoctaveFour";
   } else if ( (note.indexOf("A flat") !== -1) || (note.indexOf("G sharp") !== -1) ) {
     parsedNote = "GsharpOctaveFour";
+  } else {
+    parsedNote = "CoctaveThree";
   }
 
   return parsedNote
