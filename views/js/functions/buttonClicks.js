@@ -357,12 +357,50 @@ var userNoteC;
 var userNoteD;
 var userNoteE;
 
+var noteParser = function(note) {
+  var parsedNote;
+
+  if(note.indexOf("A") !== -1) {
+    parsedNote = "AoctaveThree";
+  } else if ( (note.indexOf("B flat") !== -1) || (note.indexOf("A sharp") !== -1) ) {
+    parsedNote = "AsharpOctaveThree";
+  } else if (note.indexOf("B") !== -1) {
+    parsedNote = "BoctaveThree";
+  } else if (note.indexOf("C") !== -1) {
+    parsedNote = "CoctaveFour";
+  } else if ( (note.indexOf("C sharp") !== -1) || (note.indexOf("D flat") !== -1) ) {
+    parsedNote = "CsharpOctaveFour";
+  } else if (note.indexOf("D") !== -1) {
+    parsedNote = "DoctaveFour";
+  } else if ( (note.indexOf("D sharp") !== -1) || (note.indexOf("E flat") !== -1) ) {
+    parsedNote = "DsharpOctaveFour";
+  } else if (note.indexOf("E") !== -1) {
+    parsedNote = "EoctaveFour";
+  } else if (note.indexOf("F") !== -1) {
+    parsedNote = "FoctaveFour";
+  } else if ( (note.indexOf("F sharp") !== -1) || (note.indexOf("G flat") !== -1) ) {
+    parsedNote = "FsharpOctaveFour";
+  } else if (note.indexOf("G") !== -1) {
+    parsedNote = "GoctaveFour";
+  } else if ( (note.indexOf("A flat") !== -1) || (note.indexOf("G sharp") !== -1) ) {
+    parsedNote = "GsharpOctaveFour";
+  }
+
+  return parsedNote
+}
+
 submitNotes.onclick = function() {
   userNoteA = document.querySelector('.userNoteA').value
   userNoteB = document.querySelector('.userNoteB').value
   userNoteC = document.querySelector('.userNoteC').value
   userNoteD = document.querySelector('.userNoteD').value
   userNoteE = document.querySelector('.userNoteE').value
+
+  userNoteA = noteParser(userNoteA);
+  userNoteB = noteParser(userNoteB);
+  userNoteC = noteParser(userNoteC);
+  userNoteD = noteParser(userNoteD);
+  userNoteE = noteParser(userNoteE);
 
   console.log(userNoteA + ", " + userNoteB + ", " + userNoteC + ", " + userNoteD + ", " + userNoteE)
 }
