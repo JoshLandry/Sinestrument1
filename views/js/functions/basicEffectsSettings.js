@@ -11,6 +11,8 @@ var pitchTrack = true;
 
 var randomized = false;
 
+var chaoticStacking = false;
+
 var gridlocked = true;
 
 var stepInSequence = 0;
