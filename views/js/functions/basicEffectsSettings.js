@@ -35,6 +35,8 @@ var lydianPlaying = false;
 var locrianPlaying = false;
 var wholeTonePlaying = false;
 
+var userArpPlaying = false;
+
 // note envelope
 
 var gate;
