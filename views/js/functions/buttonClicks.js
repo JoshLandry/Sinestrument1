@@ -95,6 +95,8 @@ var stopAll = function() {
   lydianPlaying = false;
   locrianPlaying = false;
   wholeTonePlaying = false;
+
+  userArpPlaying = false;
 }
 
 // reset button
