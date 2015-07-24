@@ -90,6 +90,11 @@ var stopAll = function() {
 
   acidBassArp1Playing = false;
   acidBassArp2Playing = false;
+
+  cMajorPlaying = false;
+  lydianPlaying = false;
+  locrianPlaying = false;
+  wholeTonePlaying = false;
 }
 
 // reset button
@@ -301,18 +306,46 @@ acidSequence.onclick = function () {
 // scale sequences
 
 cMajorScaleStart.onclick = function() {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
+  cMajorPlaying = true;
+
   cMajorScale();
 }
 
 lydianModeStart.onclick = function() {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
+  lydianPlaying = true;
+
   lydianMode();
 }
 
 locrianModeStart.onclick = function() {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
+  locrianPlaying = true;
+
   locrianMode();
 }
 
 wholeToneScaleStart.onclick = function() {
+
+  if(!chaoticStacking) {
+    stopAll();
+  }
+
+  wholeTonePlaying = true;
+
   wholeToneScale();
 }
 
