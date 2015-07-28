@@ -7,7 +7,7 @@ var patternLength = 2;
 
 var counter = 0;
 
-var pitchTrack = true;
+var pitchTrack = false;
 
 var randomized = false;
 

@@ -143,8 +143,12 @@ mouseTrackButton.onclick = function() {
 pitchTrackButton.onclick = function() {
   if(pitchTrack) {
     pitchTrack = false;
+    pitchTrackButton.setAttribute('data-pitchtrack', 'false');
+    pitchTrackButton.innerHTML = "Turn On Pitch Tracking";
   } else {
     pitchTrack = true;
+    pitchTrackButton.setAttribute('data-pitchtrack', 'true');
+    pitchTrackButton.innerHTML = "Turn Off Pitch Tracking";
   }
 };
 

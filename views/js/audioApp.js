@@ -45,7 +45,7 @@ var initialVol = 0.000;
 // oscillator 1
 
 oscillator1.type = 'sine';
-oscillator1.frequency.value = 2200;
+oscillator1.frequency.value = 500;
 oscillator1.detune.value = 100;
 oscillator1.start(0);
 
@@ -56,7 +56,7 @@ oscillator1.onended = function() {
 // oscillator 2
 
 oscillator2.type = 'square';
-oscillator2.frequency.value = 1100;
+oscillator2.frequency.value = 1000;
 oscillator2.detune.value = 100;
 oscillator2.start(0);
 
