@@ -1,5 +1,76 @@
 var tempoHalved = false;
 
+// arpeggiate user's chord
+
+var userNoteA;
+var userNoteB;
+var userNoteC;
+var userNoteD;
+var userNoteE;
+
+var noteParser = function(note) {
+  var parsedNote;
+
+  if(note.indexOf("A") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "AoctaveThree";
+    } else {
+      parsedNote = "AoctaveFour";
+    }
+  } else if ( (note.indexOf("B flat") !== -1) || (note.indexOf("A sharp") !== -1) || (note.indexOf("A#") !== -1) ) {
+    parsedNote = "AsharpOctaveThree";
+  } else if (note.indexOf("B") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "BoctaveThree";
+    } else {
+      parsedNote = "BoctaveTwo";
+    }
+  } else if (note.indexOf("C") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "CoctaveFour";
+    } else {
+      parsedNote = "CoctaveTwo";
+    }
+    
+  } else if ( (note.indexOf("C sharp") !== -1) || (note.indexOf("D flat") !== -1) || (note.indexOf("C#") !== -1) ) {
+    parsedNote = "CsharpOctaveFour";
+  } else if (note.indexOf("D") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "DoctaveFour";
+    } else {
+      parsedNote = "DoctaveThree";
+    }
+  } else if ( (note.indexOf("D sharp") !== -1) || (note.indexOf("E flat") !== -1) || (note.indexOf("D#") !== -1)  ) {
+    parsedNote = "DsharpOctaveFour";
+  } else if (note.indexOf("E") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "EoctaveOne";
+    } else {
+      parsedNote = "EoctaveThree";
+    }
+  } else if (note.indexOf("F") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "FoctaveThree";
+    } else {
+      parsedNote = "FoctaveFour";
+    }
+  } else if ( (note.indexOf("F sharp") !== -1) || (note.indexOf("G flat") !== -1) || (note.indexOf("F#") !== -1) ) {
+    parsedNote = "FsharpOctaveFour";
+  } else if (note.indexOf("G") !== -1) {
+    if (Math.random() < .5) {
+      parsedNote = "GoctaveTwo";
+    } else {
+      parsedNote = "GoctaveThree";
+    }
+  } else if ( (note.indexOf("A flat") !== -1) || (note.indexOf("G sharp") !== -1) || (note.indexOf("G#") !== -1) ) {
+    parsedNote = "GsharpOctaveFour";
+  } else {
+    parsedNote = "CoctaveThree";
+  }
+
+  return parsedNote
+}
+
 var userArp = function() {
 
   if(userArpPlaying) {
