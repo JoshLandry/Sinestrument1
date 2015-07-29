@@ -11,10 +11,11 @@ Using the app -
 
 Settings -
 
-  The initial settings are that Oscillators 1 & 2 are active, and their pitch follows the mouse position.  Therefore, if you move the mouse around, the tone you hear should change.
+  The initial settings are that Oscillators 1 & 2 are active, playing a constant tone.  
 
-  Disabling "Mouse Tracking" or "Pitch Tracking" in the settings section, you can stop the pitch from following the mouse
-  position.
+  If you click 'Turn On Pitch Tracking', their pitch will follow the mouse position.  Therefore, if you move the mouse around, the tone you hear should change.
+
+  The 'Mouse Tracking' setting is on by default, and it allows sequences to use the mouse position to effect which notes and chords are played when playing a 'Mouse Controlled Sequence' (see below).
 
 The PWN Oscillator - 
 
