@@ -10,15 +10,23 @@ h1, h6 {
 }
 
 p {
-  color: rgb(94,215,133);
+  color: rgb(45,134,74);
 }
 
 .blue {
   color: rgb(0,181,236);
 }
 
+.oscilloscope {
+}
+
+.column2 {
+  text-align: right;
+}
+
 h3 {
-  color: rgb(0,181,236);
+  color: rgb(0,150,236);
+  text-decoration: underline;
 }
 
 button {
@@ -32,5 +40,9 @@ button:hover {
 }
 
 div {
-  text-align: center;
+  text-align: right;
+}
+
+td {
+  width:700px;
 }
