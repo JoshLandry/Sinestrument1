@@ -27,6 +27,10 @@ button {
   outline: none;
 }
 
+button:hover { 
+  transform: scale(1.1);
+}
+
 div {
   text-align: center;
 }
