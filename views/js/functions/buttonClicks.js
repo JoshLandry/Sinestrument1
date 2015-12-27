@@ -61,8 +61,7 @@ var playUserArp = document.querySelector('.playUserArp');
 
 // PWM
 
-var pwmStart = document.querySelector('.pwmStart');
-var pwmStop = document.querySelector('.pwmStop');
+var pwmMute = document.querySelector('.pwmMute');
 
 // BUTTON CLICK FUNCTIONS
 
@@ -384,10 +383,14 @@ playUserArp.onclick = function() {
 
 // PWM Osc
 
-pwmStart.onclick = function() {
-  pwmOsc.start(0);
-}
-
-pwmStop.onclick = function() {
-  pwmOsc.stop(0);
+pwmMute.onclick = function() {
+  if(pwmMute.getAttribute('data-muted') === 'false') {
+    pwmOsc.output.disconnect(pwmAnalyser);
+    pwmLowPassFilter.disconnect(oscilloAnalyser);
+    pwmMute.setAttribute('data-muted', 'true');
+  } else {
+    pwmOsc.output.connect(pwmAnalyser);
+    pwmLowPassFilter.connect(oscilloAnalyser);
+    pwmMute.setAttribute('data-muted', 'false');
+  };
 }
