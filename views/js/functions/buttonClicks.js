@@ -2,6 +2,8 @@
 
 // settings buttons
 
+var poweron = document.querySelector('.poweron');
+
 var mute = document.querySelector('.mute');
 
 var stopSequenceButton = document.querySelector('.stopSequences');
@@ -64,6 +66,10 @@ var playUserArp = document.querySelector('.playUserArp');
 var pwmMute = document.querySelector('.pwmMute');
 
 // BUTTON CLICK FUNCTIONS
+
+// poweron button
+
+
 
 // mute button
 
