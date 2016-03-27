@@ -23,5 +23,9 @@
     "consolidate": "^0.13.1",
     "express": "^4.13.1",
     "mustache": "^2.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1"
   }
 }
