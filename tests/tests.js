@@ -1,7 +1,7 @@
 'use strict';
 
 require('../index.js');
-require('../views/js/audioApp.js');
+// require('../views/js/audioApp.js');
 
 var chai = require('chai');
 var chaihttp = require('chai-http');
